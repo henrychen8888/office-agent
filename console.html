@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>个人办公智能体工作台</title>
+<style>
+:root{
+  --bg:#f4f5f7; --card:#fff; --sunk:#fafbfc;
+  --bd:#e5e6eb; --bd2:#d0d3d9;
+  --t1:#1d2129; --t2:#4e5969; --t3:#86909c;
+  --pri:#2b5fd9; --pri-bg:#edf2fe; --pri-bd:#c3d4fa;
+  --ok:#00a854; --ok-bg:#e8f8ef;
+  --warn:#e07b00; --warn-bg:#fff5e6;
+  --bad:#e34d4d; --bad-bg:#fdecec;
+  --n0:#00a854; --n1:#2b5fd9; --n2:#e07b00; --n3:#e34d4d; --n4:#7a1520;
+  --r:8px; --r2:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  font-size:13px;line-height:1.6;color:var(--t1);background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+}
+button,input,select,textarea{font-family:inherit;font-size:13px;color:inherit}
+button{cursor:pointer;border:none;background:none}
+
+header{
+  height:52px;background:var(--card);border-bottom:1px solid var(--bd);
+  display:flex;align-items:center;padding:0 20px;gap:14px;
+  position:sticky;top:0;z-index:50;
+}
+.brand{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500}
+.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--ok)}
+.brand .sub{font-size:12px;color:var(--t3);font-weight:400;padding-left:8px;border-left:1px solid var(--bd)}
+header .spacer{flex:1}
+.hd-info{font-size:12px;color:var(--t2);display:flex;align-items:center;gap:14px}
+.hd-info b{font-weight:500;color:var(--t1)}
+.tag{display:inline-block;padding:1px 7px;border-radius:4px;font-size:11px;line-height:18px;
+  background:var(--pri-bg);color:var(--pri);border:1px solid var(--pri-bd)}
+
+.layout{display:flex;align-items:flex-start;min-height:calc(100vh - 52px)}
+aside{
+  width:196px;flex:0 0 196px;background:var(--card);border-right:1px solid var(--bd);
+  padding:12px 10px;position:sticky;top:52px;height:calc(100vh - 52px);overflow-y:auto;
+}
+.nav-group{font-size:11px;color:var(--t3);padding:10px 10px 4px;letter-spacing:.4px}
+.nav-item{
+  display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:6px;
+  color:var(--t2);font-size:13px;margin-bottom:1px;width:100%;text-align:left;
+}
+.nav-item:hover{background:var(--sunk);color:var(--t1)}
+.nav-item.on{background:var(--pri-bg);color:var(--pri);font-weight:500}
+.nav-item .ico{width:14px;height:14px;flex:0 0 14px;stroke:currentColor;fill:none;stroke-width:1.6;
+  stroke-linecap:round;stroke-linejoin:round}
+.nav-item .cnt{margin-left:auto;font-size:11px;color:var(--t3)}
+.nav-item.on .cnt{color:var(--pri)}
+
+main{flex:1;padding:18px 22px 60px;min-width:0;max-width:1180px}
+.view{display:none}
+.view.on{display:block}
+
+.ph{margin-bottom:16px}
+.ph h1{font-size:16px;font-weight:500;margin-bottom:4px}
+.ph p{font-size:12px;color:var(--t3)}
+
+.card{background:var(--card);border:1px solid var(--bd);border-radius:var(--r2);padding:16px 18px}
+.card+.card{margin-top:14px}
+.card-h{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.card-h h2{font-size:14px;font-weight:500}
+.card-h .hint{font-size:12px;color:var(--t3)}
+.card-h .right{margin-left:auto;display:flex;gap:8px;align-items:center}
+
+.grid{display:grid;gap:12px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+
+.stat{background:var(--sunk);border-radius:var(--r);padding:12px 14px}
+.stat .lb{font-size:12px;color:var(--t3);margin-bottom:4px}
+.stat .vl{font-size:22px;font-weight:500;line-height:1.2;font-variant-numeric:tabular-nums}
+.stat .foot{font-size:11px;color:var(--t3);margin-top:3px}
+.stat .vl.ok{color:var(--ok)} .stat .vl.warn{color:var(--warn)} .stat .vl.bad{color:var(--bad)}
+
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--bd);vertical-align:top}
+th{font-weight:500;color:var(--t2);background:var(--sunk);font-size:12px;
+  position:sticky;top:0}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:#fcfcfd}
+.tw{overflow:auto;border:1px solid var(--bd);border-radius:var(--r)}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px}
+
+.pill{display:inline-block;padding:0 7px;border-radius:4px;font-size:11px;line-height:18px;
+  border:1px solid transparent;white-space:nowrap}
+.pill.gray{background:#f2f3f5;color:var(--t2);border-color:var(--bd)}
+.pill.blue{background:var(--pri-bg);color:var(--pri);border-color:var(--pri-bd)}
+.pill.green{background:var(--ok-bg);color:var(--ok);border-color:#b7e6cd}
+.pill.orange{background:var(--warn-bg);color:var(--warn);border-color:#f5d9ab}
+.pill.red{background:var(--bad-bg);color:var(--bad);border-color:#f5bcbc}
+.pill.dark{background:#fdecef;color:var(--n4);border-color:#f0c3ca}
+
+.btn{padding:6px 13px;border-radius:6px;border:1px solid var(--bd2);background:var(--card);
+  color:var(--t1);font-size:12.5px;transition:.12s}
+.btn:hover{border-color:var(--pri);color:var(--pri);background:var(--pri-bg)}
+.btn.pri{background:var(--pri);border-color:var(--pri);color:#fff}
+.btn.pri:hover{background:#1f4fc0;border-color:#1f4fc0;color:#fff}
+.btn.sm{padding:3px 9px;font-size:12px}
+.btn.ghost{border-color:transparent;color:var(--t2)}
+.btn.ghost:hover{background:var(--sunk);color:var(--t1);border-color:transparent}
+.btn.danger:hover{border-color:var(--bad);color:var(--bad);background:var(--bad-bg)}
+
+label.f{display:block;margin-bottom:11px}
+label.f .fname{display:block;font-size:12px;color:var(--t2);margin-bottom:4px}
+label.f .fname .req{color:var(--bad);margin-left:2px}
+input[type=text],input[type=date],input[type=time],select,textarea{
+  width:100%;padding:7px 10px;border:1px solid var(--bd2);border-radius:6px;background:var(--card);
+  outline:none;transition:.12s}
+input:focus,select:focus,textarea:focus{border-color:var(--pri);box-shadow:0 0 0 2px var(--pri-bg)}
+textarea{resize:vertical;min-height:62px;line-height:1.6}
+
+.tpl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:12px}
+.tpl-card{background:var(--card);border:1px solid var(--bd);border-radius:var(--r2);padding:14px;
+  cursor:pointer;transition:.14s;display:flex;flex-direction:column;gap:8px}
+.tpl-card:hover{border-color:var(--pri);box-shadow:0 2px 8px rgba(43,95,217,.1)}
+.tpl-card .tno{font-size:11px;color:var(--t3);font-family:ui-monospace,monospace}
+.tpl-card .tnm{font-size:13.5px;font-weight:500}
+.tpl-card .tds{font-size:12px;color:var(--t3);line-height:1.5;min-height:36px}
+.tpl-card .tft{margin-top:auto;display:flex;align-items:center;gap:8px}
+
+.tabs{display:flex;gap:2px;border-bottom:1px solid var(--bd);margin-bottom:14px;overflow-x:auto}
+.tab{padding:8px 14px;font-size:13px;color:var(--t2);border-bottom:2px solid transparent;
+  white-space:nowrap;margin-bottom:-1px}
+.tab:hover{color:var(--t1)}
+.tab.on{color:var(--pri);border-bottom-color:var(--pri);font-weight:500}
+.tab .n{font-size:11px;color:var(--t3);margin-left:4px}
+
+.mem-item{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--bd);align-items:flex-start}
+.mem-item:last-child{border-bottom:none}
+.mem-item .txt{flex:1;font-size:13px;line-height:1.6}
+.mem-item .meta{font-size:11px;color:var(--t3);margin-top:3px}
+.mem-item .act{opacity:0;transition:.12s}
+.mem-item:hover .act{opacity:1}
+
+.scene{display:flex;align-items:center;gap:14px;padding:13px 0;border-bottom:1px solid var(--bd)}
+.scene:last-child{border-bottom:none}
+.scene .sc-main{flex:1;min-width:0}
+.scene .sc-t{font-size:13px;font-weight:500;margin-bottom:2px}
+.scene .sc-d{font-size:12px;color:var(--t3)}
+.scene .sc-time{width:104px;flex:0 0 104px}
+.sw{position:relative;width:38px;height:21px;flex:0 0 38px;border-radius:11px;background:#d5d8de;
+  cursor:pointer;transition:.16s;border:none;padding:0}
+.sw::after{content:"";position:absolute;top:2px;left:2px;width:17px;height:17px;border-radius:50%;
+  background:#fff;transition:.16s;box-shadow:0 1px 3px rgba(0,0,0,.18)}
+.sw.on{background:var(--pri)}
+.sw.on::after{transform:translateX(17px)}
+
+.lvl{border:1px solid var(--bd);border-radius:var(--r);padding:12px 14px;background:var(--card)}
+#lvl-grid{grid-template-columns:repeat(auto-fit,minmax(204px,1fr))}
+.lvl .lh{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.lvl .code{font-family:ui-monospace,monospace;font-size:12px;font-weight:500;padding:1px 6px;
+  border-radius:4px;color:#fff}
+.lvl .ln{font-size:13px;font-weight:500}
+.lvl .ld{font-size:12px;color:var(--t3);line-height:1.55;margin-bottom:7px}
+.lvl .le{font-size:12px;color:var(--t2);padding-left:14px;position:relative}
+.lvl .le::before{content:"";position:absolute;left:3px;top:8px;width:4px;height:4px;border-radius:50%;
+  background:var(--t3)}
+
+.l0 .code{background:var(--n0)} .l1 .code{background:var(--n1)}
+.l2 .code{background:var(--n2)} .l3 .code{background:var(--n3)} .l4 .code{background:var(--n4)}
+.l0{border-left:3px solid var(--n0)} .l1{border-left:3px solid var(--n1)}
+.l2{border-left:3px solid var(--n2)} .l3{border-left:3px solid var(--n3)} .l4{border-left:3px solid var(--n4)}
+
+.drawer-mask{position:fixed;inset:0;background:rgba(29,33,41,.42);z-index:100;display:none}
+.drawer-mask.on{display:block}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:640px;max-width:94vw;background:var(--bg);
+  z-index:101;transform:translateX(100%);transition:transform .22s cubic-bezier(.4,0,.2,1);
+  display:flex;flex-direction:column}
+.drawer.on{transform:translateX(0)}
+.drawer-h{background:var(--card);border-bottom:1px solid var(--bd);padding:14px 20px;
+  display:flex;align-items:center;gap:12px;flex:0 0 auto}
+.drawer-h h2{font-size:15px;font-weight:500}
+.drawer-h .sub{font-size:12px;color:var(--t3)}
+.drawer-b{flex:1;overflow-y:auto;padding:18px 20px 40px}
+.drawer-f{background:var(--card);border-top:1px solid var(--bd);padding:12px 20px;
+  display:flex;gap:10px;justify-content:flex-end;flex:0 0 auto}
+.xbtn{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;
+  color:var(--t3);font-size:17px;line-height:1}
+.xbtn:hover{background:var(--sunk);color:var(--t1)}
+
+.out{background:var(--sunk);border:1px solid var(--bd);border-radius:var(--r);
+  padding:14px 16px;font-size:12.5px;line-height:1.8;white-space:pre-wrap;word-break:break-word;
+  max-height:420px;overflow:auto}
+.empty{text-align:center;padding:32px 20px;color:var(--t3);font-size:12.5px}
+
+.toast{position:fixed;left:50%;bottom:34px;transform:translate(-50%,14px);background:#1d2129;
+  color:#fff;padding:9px 20px;border-radius:7px;font-size:12.5px;opacity:0;pointer-events:none;
+  transition:.22s;z-index:200}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+.quick{display:flex;flex-wrap:wrap;gap:8px}
+.quick button{padding:6px 12px;border:1px solid var(--bd2);border-radius:15px;font-size:12px;
+  color:var(--t2);background:var(--card);transition:.12s}
+.quick button:hover{border-color:var(--pri);color:var(--pri);background:var(--pri-bg)}
+
+.split{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:14px;align-items:start}
+.note{font-size:12px;color:var(--t3);line-height:1.7}
+.note b{color:var(--t2);font-weight:500}
+ul.dot{padding-left:0;list-style:none}
+ul.dot li{position:relative;padding-left:14px;margin-bottom:5px;font-size:12.5px;color:var(--t2);line-height:1.6}
+ul.dot li::before{content:"";position:absolute;left:2px;top:8px;width:4px;height:4px;border-radius:50%;background:var(--bd2)}
+
+@media(max-width:1080px){
+  .g4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .split{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:820px){
+  aside{position:fixed;left:0;top:52px;bottom:0;z-index:60;transform:translateX(-100%);transition:.2s}
+  aside.on{transform:translateX(0)}
+  main{padding:14px}
+  .g3,.g2{grid-template-columns:minmax(0,1fr)}
+  .drawer{width:100%}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <span class="dot"></span>
+    个人办公智能体
+    <span class="sub">工作台 v1.0.0</span>
+  </div>
+  <div class="spacer"></div>
+  <div class="hd-info">
+    <span>莫扎特 · <b>【工号】</b></span>
+    <span class="tag">管理部</span>
+    <span class="tag">知识库脱敏版</span>
+    <span id="clock" class="mono"></span>
+  </div>
+</header>
+
+<div class="layout">
+<aside id="side">
+  <div class="nav-group">概览</div>
+  <button class="nav-item on" data-v="dash">
+    <svg class="ico" viewBox="0 0 16 16"><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="9" y="2" width="5" height="5" rx="1"/><rect x="2" y="9" width="5" height="5" rx="1"/><rect x="9" y="9" width="5" height="5" rx="1"/></svg>
+    工作台
+  </button>
+
+  <div class="nav-group">基础层</div>
+  <button class="nav-item" data-v="tpl">
+    <svg class="ico" viewBox="0 0 16 16"><path d="M3 2h7l3 3v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/><path d="M10 2v3h3"/></svg>
+    模板库<span class="cnt" id="cnt-tpl">10</span>
+  </button>
+  <button class="nav-item" data-v="mem">
+    <svg class="ico" viewBox="0 0 16 16"><path d="M8 2a4 4 0 0 0-4 4c0 1.2.5 2.2 1.3 2.9V11h5.4V8.9A4 4 0 0 0 8 2z"/><path d="M6 13h4"/></svg>
+    记忆库<span class="cnt" id="cnt-mem">0</span>
+  </button>
+
+  <div class="nav-group">增强层</div>
+  <button class="nav-item" data-v="sense">
+    <svg class="ico" viewBox="0 0 16 16"><path d="M8 2v2M8 12v2M2 8h2M12 8h2M4 4l1.5 1.5M10.5 10.5L12 12M12 4l-1.5 1.5M5.5 10.5L4 12"/><circle cx="8" cy="8" r="2.2"/></svg>
+    主动感知
+  </button>
+  <button class="nav-item" data-v="auth">
+    <svg class="ico" viewBox="0 0 16 16"><path d="M8 1.8 13 4v4.2c0 3-2.1 5.4-5 6-2.9-.6-5-3-5-6V4l5-2.2z"/><path d="M6.2 8.2 7.5 9.5l2.4-2.6"/></svg>
+    授权规则
+  </button>
+  <button class="nav-item" data-v="audit">
+    <svg class="ico" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 4.5V8l2.4 1.6"/></svg>
+    审计日志<span class="cnt" id="cnt-audit">0</span>
+  </button>
+  <button class="nav-item" data-v="know">
+    <svg class="ico" viewBox="0 0 16 16"><path d="M8 3C6.8 2 5 2 3 2v11c2 0 3.8 0 5 1 1.2-1 3-1 5-1V2c-2 0-3.8 0-5 1z"/><path d="M8 3v11"/></svg>
+    知识库<span class="cnt" id="cnt-know">0</span>
+  </button>
+
+  <div class="nav-group">规划中</div>
+  <button class="nav-item" data-v="plan">
+    <svg class="ico" viewBox="0 0 16 16"><path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h7"/></svg>
+    模块规划
+  </button>
+</aside>
+
+<main>
+
+<!-- ============ 工作台 ============ -->
+<section class="view on" id="v-dash">
+  <div class="ph">
+    <h1>工作台</h1>
+    <p id="dash-date"></p>
+  </div>
+
+  <div class="grid g4" style="margin-bottom:14px">
+    <div class="stat">
+      <div class="lb">今日日程</div>
+      <div class="vl" id="s-sch">—</div>
+      <div class="foot">企业微信日程</div>
+    </div>
+    <div class="stat">
+      <div class="lb">到期待办</div>
+      <div class="vl" id="s-todo">—</div>
+      <div class="foot">企业微信待办</div>
+    </div>
+    <div class="stat">
+      <div class="lb">已有记忆</div>
+      <div class="vl ok" id="s-mem">0</div>
+      <div class="foot">动态记忆条目</div>
+    </div>
+    <div class="stat">
+      <div class="lb">今日动作</div>
+      <div class="vl" id="s-act">0</div>
+      <div class="foot">审计记录</div>
+    </div>
+  </div>
+
+  <div class="split">
+    <div>
+      <div class="card">
+        <div class="card-h">
+          <h2>快捷指令</h2>
+          <span class="hint">点击填入，交给智能体执行</span>
+        </div>
+        <div class="quick">
+          <button data-q="生成今日晨报">生成今日晨报</button>
+          <button data-q="写一份资产盘点通知">写一份资产盘点通知</button>
+          <button data-q="把这段会议纪要拆成待办">纪要拆成待办</button>
+          <button data-q="查看本月资产指标异动">查看指标异动</button>
+          <button data-q="记住：月报按区域拆分，不做累计总量">记住一条偏好</button>
+          <button data-q="看看你都记得什么">查看我的记忆</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h">
+          <h2>最近动作</h2>
+          <div class="right">
+            <button class="btn sm ghost" data-go="audit">全部记录</button>
+          </div>
+        </div>
+        <div class="tw">
+          <table>
+            <thead><tr><th style="width:64px">时间</th><th style="width:56px">等级</th><th>动作</th><th style="width:110px">结果</th></tr></thead>
+            <tbody id="dash-audit"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>今日提醒</h2></div>
+        <div id="dash-sense" class="note"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>运行状态</h2></div>
+        <ul class="dot">
+          <li>档案：已加载 <b>M0</b></li>
+          <li>模板库：<b id="st-tpl">10 套</b>可用</li>
+          <li>记忆库：<b id="st-mem">0 条</b></li>
+          <li>授权规则：<b>五级</b>已生效</li>
+          <li>主动感知：<b id="st-sense">0 项</b>已开启</li>
+          <li>模式：<b>本地离线</b></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 模板库 ============ -->
+<section class="view" id="v-tpl">
+  <div class="ph">
+    <h1>模板库</h1>
+    <p>10 套模板覆盖公文族与报告族，点击卡片填写内容并生成文书</p>
+  </div>
+
+  <div class="tabs" id="tpl-tabs"></div>
+  <div class="tpl-grid" id="tpl-grid"></div>
+</section>
+
+<!-- ============ 记忆库 ============ -->
+<section class="view" id="v-mem">
+  <div class="ph">
+    <h1>记忆库</h1>
+    <p>M7 动态记忆库 · 说一次即长期记住，交互成本随时间递减</p>
+  </div>
+
+  <div class="tabs" id="mem-tabs"></div>
+
+  <div class="card">
+    <div class="card-h">
+      <h2 id="mem-title">偏好层</h2>
+      <span class="hint" id="mem-desc"></span>
+      <div class="right">
+        <button class="btn sm pri" id="mem-add">新增记忆</button>
+      </div>
+    </div>
+    <div id="mem-list"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-h"><h2>记忆分层说明</h2></div>
+    <div class="tw">
+      <table>
+        <thead><tr><th style="width:90px">层级</th><th style="width:130px">内容</th><th>示例</th><th style="width:88px">变更频率</th></tr></thead>
+        <tbody>
+          <tr><td><span class="pill blue">L1 身份层</span></td><td>姓名、工号、单位</td><td class="note">莫扎特 / 【工号】 / 管理部</td><td class="note">几乎不变</td></tr>
+          <tr><td><span class="pill green">L2 偏好层</span></td><td>文书规范、表述习惯</td><td class="note">月报按区域拆分，不做累计总量</td><td class="note">偶有更新</td></tr>
+          <tr><td><span class="pill orange">L3 关系层</span></td><td>对接人、单位分工</td><td class="note">莫扎特为主要对接人</td><td class="note">逐步积累</td></tr>
+          <tr><td><span class="pill">L4 事实层</span></td><td>项目信息、数据口径</td><td class="note">四区资产合计（随当期快照更新）</td><td class="note">持续增长</td></tr>
+          <tr><td><span class="pill gray">L5 事件层</span></td><td>历史决策、历史产出</td><td class="note">2026-09-23 完成模板库 v1</td><td class="note">按日期归档</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 授权规则 ============ -->
+<section class="view" id="v-auth">
+  <div class="ph">
+    <h1>授权规则</h1>
+    <p>M8 授权与审计 · 什么能自动做、什么必须先问，一目了然</p>
+  </div>
+
+  <div class="grid g2" style="margin-bottom:14px" id="lvl-grid"></div>
+
+  <div class="card">
+    <div class="card-h">
+      <h2>动作归属速查</h2>
+      <div class="right">
+        <input type="text" id="auth-search" placeholder="搜索动作，如：发邮件" style="width:200px">
+      </div>
+    </div>
+    <div class="tw">
+      <table>
+        <thead><tr><th style="width:70px">等级</th><th style="width:190px">动作</th><th>处理方式</th></tr></thead>
+        <tbody id="auth-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-h"><h2>红线说明</h2></div>
+    <ul class="dot">
+      <li><b>L4 永不可自动执行</b> —— 数据库增删改、文件删除，即使明确要求也需人工操作</li>
+      <li><b>审计记录不可自行删除</b> —— 智能体无权清除自己的操作痕迹</li>
+      <li><b>确认不可跳过</b> —— L2/L3 动作必须经用户确认，不提供"记住本次选择"选项</li>
+      <li><b>不持久化提权</b> —— 临时提权仅限单次，不写入配置</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 主动感知 ============ -->
+<section class="view" id="v-sense">
+  <div class="ph">
+    <h1>主动感知</h1>
+    <p>M6 主动感知引擎 · 不等你开口，主动发现问题并推送</p>
+  </div>
+
+  <div class="split">
+    <div class="card">
+      <div class="card-h">
+        <h2>推送场景</h2>
+        <span class="hint">开启后按设定时间推送</span>
+        <div class="right">
+          <button class="btn sm ghost" id="sense-reset">恢复默认</button>
+        </div>
+      </div>
+      <div id="sense-list"></div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>推送示例</h2></div>
+        <div class="out" style="font-size:12px">【指标异动】电脑资产闲置率  当前值已超红色告警线（阈值 &gt;20%） 主因：长期未登录设备中含停止支持操作系统 建议动作：按 idle / off-domain / scrapped / test / low-use 五类根因分类后限期处置</div>
+      </div>
+      <div class="card">
+        <div class="card-h"><h2>边界</h2></div>
+        <ul class="dot">
+          <li>只推信息与建议，<b>不自动执行动作</b></li>
+          <li>推送内容需可追溯数据来源</li>
+          <li>支持按场景单独开关</li>
+          <li>支持设置免打扰时段</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 审计日志 ============ -->
+<section class="view" id="v-audit">
+  <div class="ph">
+    <h1>审计日志</h1>
+    <p>M8 授权与审计 · 每次动作留痕，可追溯、可查询</p>
+  </div>
+
+  <div class="card">
+    <div class="card-h">
+      <h2>动作记录</h2>
+      <div class="right">
+        <select id="audit-filter" style="width:130px">
+          <option value="">全部等级</option>
+          <option value="L0">L0 只读</option>
+          <option value="L1">L1 低风险</option>
+          <option value="L2">L2 中风险</option>
+          <option value="L3">L3 高风险</option>
+          <option value="L4">L4 禁止</option>
+        </select>
+        <button class="btn sm pri" id="audit-add">记录动作</button>
+      </div>
+    </div>
+    <div class="tw">
+      <table>
+        <thead><tr><th style="width:60px">时间</th><th style="width:56px">等级</th><th style="width:170px">动作</th><th>对象</th><th style="width:110px">结果</th></tr></thead>
+        <tbody id="audit-tbody"></tbody>
+      </table>
+    </div>
+    <p class="note" style="margin-top:10px">审计记录仅供查阅，智能体无权自行删除。</p>
+  </div>
+</section>
+
+<!-- ============ 部门知识库 ============ -->
+<section class="view" id="v-know">
+  <div class="ph">
+    <h1>部门知识库</h1>
+    <p>K1 管理部 · 提炼自「资产指标与 AI 创新项目汇总」· 数据快照 2026-09-14 · <b>发布版已脱敏：仅保留口径与阈值，基线数值随当期看板更新</b></p>
+  </div>
+
+  <div class="card" style="margin-bottom:14px">
+    <div class="card-h">
+      <h2>指标异动阈值</h2>
+      <span class="hint">M6 权威源 memory/thresholds.md · 本表为运行时副本</span>
+    </div>
+    <div class="tw">
+      <table>
+        <thead><tr><th style="width:190px">指标</th><th style="width:180px">预警</th><th style="width:200px">红色告警</th><th>基线（09-14）</th></tr></thead>
+        <tbody id="thr-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="tabs" id="know-tabs"></div>
+  <div style="margin:12px 0"><input type="text" id="know-search" placeholder="搜索知识条目（名称 / 标签 / 内容），如：闲置率、Dify" style="width:320px"></div>
+  <div class="tpl-grid" id="know-grid"></div>
+</section>
+
+<!-- ============ 模块规划 ============ -->
+<section class="view" id="v-plan">
+  <div class="ph">
+    <h1>模块规划</h1>
+    <p>三阶段建设路线，当前处于 Phase 1</p>
+  </div>
+
+  <div class="card">
+    <div class="card-h"><h2>模块总览</h2></div>
+    <div class="tw">
+      <table>
+        <thead><tr><th style="width:56px">编号</th><th style="width:130px">模块</th><th style="width:80px">层次</th><th style="width:80px">状态</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">M0</td><td>个人档案</td><td>基础层</td><td><span class="pill green">已完成</span></td><td class="note">身份、对接人、偏好、授权摘要</td></tr>
+          <tr><td class="mono">M1</td><td>模板库</td><td>基础层</td><td><span class="pill green">已完成</span></td><td class="note">10 套模板，覆盖公文族与报告族</td></tr>
+          <tr><td class="mono">M2</td><td>日程会议</td><td>执行层</td><td><span class="pill gray">待开发</span></td><td class="note">约会议、查忙闲、改期、会前提醒</td></tr>
+          <tr><td class="mono">M3</td><td>待办任务</td><td>执行层</td><td><span class="pill gray">待开发</span></td><td class="note">待办创建、到期催办、周计划拆解</td></tr>
+          <tr><td class="mono">M4</td><td>文书起草</td><td>执行层</td><td><span class="pill orange">部分可用</span></td><td class="note">模板已就绪，待建 Word/PDF 导出</td></tr>
+          <tr><td class="mono">M5</td><td>消息邮件</td><td>执行层</td><td><span class="pill gray">待开发</span></td><td class="note">邮件收发检索、群消息通知</td></tr>
+          <tr><td class="mono">M6</td><td>主动感知引擎</td><td>增强层</td><td><span class="pill orange">配置可用</span></td><td class="note">晨报、周计划、会前提醒、异动预警</td></tr>
+          <tr><td class="mono">M7</td><td>动态记忆库</td><td>增强层</td><td><span class="pill green">已可用</span></td><td class="note">五层记忆，增删改查齐全</td></tr>
+          <tr><td class="mono">M8</td><td>授权与审计</td><td>增强层</td><td><span class="pill green">已可用</span></td><td class="note">五级授权模型 + 动作留痕</td></tr>
+          <tr><td class="mono">K1</td><td>部门知识库</td><td>增强层</td><td><span class="pill orange">新增融合</span></td><td class="note">knowledge/ 文件 + M6 阈值 + M7 L4 事实 + 本视图</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-h"><h2>实施顺序</h2><span class="hint">依赖关系决定，非按编号</span></div>
+    <div class="grid g3">
+      <div class="stat">
+        <div class="lb">Phase 1 · 基础可用</div>
+        <div class="note" style="margin-top:6px">
+          M0 档案 · 已完成<br>
+          M1 模板库 · 已完成<br>
+          M7 记忆库 · 已可用<br>
+          M4 导出脚本 · 待做
+        </div>
+      </div>
+      <div class="stat">
+        <div class="lb">Phase 2 · 主动服务</div>
+        <div class="note" style="margin-top:6px">
+          M8 授权审计 · 已可用<br>
+          M6 感知引擎 · 配置可用<br>
+          M2 日程会议 · 待开发<br>
+          M3 待办任务 · 待开发
+        </div>
+      </div>
+      <div class="stat">
+        <div class="lb">Phase 3 · 完整闭环</div>
+        <div class="note" style="margin-top:6px">
+          M5 消息邮件<br>
+          后台长跑任务<br>
+          自建连接器
+        </div>
+      </div>
+    </div>
+    <p class="note" style="margin-top:14px">
+      <b>关键判断</b>：M7 是 M6 的前置条件——没有记忆，主动感知就判断不出什么该提醒；M8 是 M2–M5 所有执行动作的横切关注点，不是独立模块。
+    </p>
+  </div>
+</section>
+
+</main>
+</div>
+
+<div class="drawer-mask" id="mask"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-h">
+    <div style="flex:1;min-width:0">
+      <h2 id="dw-title">模板</h2>
+      <div class="sub" id="dw-sub"></div>
+    </div>
+    <button class="xbtn" id="dw-close">×</button>
+  </div>
+  <div class="drawer-b" id="dw-body"></div>
+  <div class="drawer-f" id="dw-foot"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+"use strict";
+
+const K_MEM="oa_memory_v1", K_SENSE="oa_sense_v1", K_AUDIT="oa_audit_v1";
+
+/* ---------------- 模板定义 ---------------- */
+const TPL=[
+{id:"TPL-01",name:"内部联络申请单",cat:"公文族",desc:"跨部门申请、会议召开、人员提报",
+ fields:[
+  {k:"no",l:"申请单号",v:"@NL"},
+  {k:"date",l:"申请日期",v:"@todayCN"},
+  {k:"cat",l:"联络类别",t:"sel",o:["会议召开","人员提报","事项协调","其他"]},
+  {k:"reason",l:"申请事由",req:1},
+  {k:"to",l:"联络对象",req:1},
+  {k:"deadline",l:"期望完成时间",d:"2026年10月8日"},
+  {k:"detail",l:"事项说明",t:"area",req:1},
+  {k:"attach",l:"附件"}],
+ body:`# 内部联络申请单
+
+| 项目 | 内容 |
+|---|---|
+| 申请单号 | {{no}} |
+| 申请单位 | 管理部 |
+| 申请人 | 莫扎特（【工号】） |
+| 申请日期 | {{date}} |
+| 联络类别 | {{cat}} |
+| 申请事由 | {{reason}} |
+| 联络对象 | {{to}} |
+| 期望完成时间 | {{deadline}} |
+| 事项说明 | {{detail}} |
+| 附件 | {{attach}} |
+
+申请人签字：＿＿＿＿＿＿　　日期：{{date}}
+
+单位主管：＿＿＿＿＿＿　　　日期：{{date}}`},
+
+{id:"TPL-02",name:"签呈申请单",cat:"公文族",desc:"采购、人事、预算、方案核准",
+ fields:[
+  {k:"no",l:"签呈单号",v:"@QC"},
+  {k:"date",l:"签呈日期",v:"@todayCN"},
+  {k:"cat",l:"签呈类别",t:"sel",o:["采购","人事","预算","方案核准","其他"]},
+  {k:"subject",l:"主旨",req:1,d:"一句话说明请求事项，不超过40字"},
+  {k:"detail",l:"说明",t:"area",req:1,d:"背景 → 现况 → 拟办方案"},
+  {k:"opinion",l:"拟办意见",t:"area"},
+  {k:"cost",l:"所需经费（元）"},
+  {k:"attach",l:"附件"}],
+ body:`# 签呈申请单
+
+| 项目 | 内容 |
+|---|---|
+| 签呈单号 | {{no}} |
+| 签呈单位 | 管理部 |
+| 签呈人 | 莫扎特（【工号】） |
+| 签呈日期 | {{date}} |
+| 签呈类别 | {{cat}} |
+| 主旨 | {{subject}} |
+| 说明 | {{detail}} |
+| 拟办意见 | {{opinion}} |
+| 所需经费 | {{cost}} 元 |
+| 附件 | {{attach}} |
+
+签呈人：＿＿＿＿＿＿　　日期：{{date}}
+
+部门主管：＿＿＿＿＿＿　日期：{{date}}
+
+核准：＿＿＿＿＿＿　　　日期：{{date}}`},
+
+{id:"TPL-03",name:"出差申请单",cat:"公文族",desc:"因公出差事前申请",
+ fields:[
+  {k:"no",l:"出差单号",v:"@CC"},
+  {k:"reason",l:"出差事由",req:1},
+  {k:"place",l:"出差地点",req:1},
+  {k:"period",l:"出差起止",d:"2026年10月12日 至 10月14日，共3天"},
+  {k:"who",l:"同行人员",d:"姓名（工号）"},
+  {k:"task",l:"主要任务",t:"area",req:1,d:"每行一项，需可验收"},
+  {k:"traffic",l:"交通方式",t:"sel",o:["高铁","飞机","自驾","其他"]},
+  {k:"cost",l:"预估费用（元）",d:"交通+住宿+其他"},
+  {k:"attach",l:"附件",d:"会议通知 / 议程 / 参会名单"}],
+ body:`# 出差申请单
+
+| 项目 | 内容 |
+|---|---|
+| 出差单号 | {{no}} |
+| 申请人 | 莫扎特（【工号】） |
+| 所属单位 | 管理部 |
+| 出差事由 | {{reason}} |
+| 出差地点 | {{place}} |
+| 出差起止 | {{period}} |
+| 同行人员 | {{who}} |
+| 主要任务 | {{task}} |
+| 交通方式 | {{traffic}} |
+| 预估费用 | {{cost}} 元 |
+| 附件 | {{attach}} |
+
+申请人：＿＿＿＿＿＿　　日期：＿＿＿＿＿＿
+
+部门主管：＿＿＿＿＿＿　日期：＿＿＿＿＿＿`},
+
+{id:"TPL-04",name:"通知文书",cat:"公文族",desc:"事项通知、政策宣导、工作布置",
+ fields:[
+  {k:"unit",l:"发文单位",v:"管理部",req:1},
+  {k:"no",l:"文件字号",v:"资管字〔2026〕第 ___ 号"},
+  {k:"purpose",l:"目的说明",req:1,d:"为……，现将有关事项通知如下"},
+  {k:"t1",l:"事项一标题",req:1},
+  {k:"c1",l:"事项一内容",t:"area",req:1},
+  {k:"t2",l:"事项二标题"},
+  {k:"c2",l:"事项二内容",t:"area"},
+  {k:"req1",l:"工作要求",t:"area",d:"每行一项"},
+  {k:"deadline",l:"报送截止",d:"2026年10月15日"},
+  {k:"receiver",l:"接收人",v:"莫扎特"},
+  {k:"rcode",l:"接收人工号",v:"【工号】"},
+  {k:"date",l:"发文日期",v:"@todayCN"}],
+ body:`# {{unit}}通知
+
+{{no}}
+
+---
+
+各部门 / 各单位：
+
+　　为{{purpose}}，现将有关事项通知如下：
+
+一、{{t1}}
+
+　　{{c1}}
+
+二、{{t2}}
+
+　　{{c2}}
+
+三、工作要求
+
+{{req1}}
+
+　　请各单位于{{deadline}}前将相关材料报送至{{receiver}}（工号 {{rcode}}）。
+
+　　特此通知。
+
+{{unit}}
+{{date}}`},
+
+{id:"TPL-05",name:"会议纪要",cat:"通用",desc:"各类会议会后纪要",
+ fields:[
+  {k:"title",l:"会议名称",req:1},
+  {k:"time",l:"会议时间",d:"2026年9月23日 14:00 - 16:00"},
+  {k:"place",l:"会议地点",d:"会议室 / 线上"},
+  {k:"host",l:"主持人"},
+  {k:"attend",l:"参会人员"},
+  {k:"t1",l:"议题一名称",req:1},
+  {k:"p1",l:"议题一要点",t:"area",req:1},
+  {k:"r1",l:"议题一决议",t:"area",req:1},
+  {k:"t2",l:"议题二名称"},
+  {k:"p2",l:"议题二要点",t:"area"},
+  {k:"r2",l:"议题二决议",t:"area"},
+  {k:"todo",l:"待办事项",t:"area",d:"事项｜责任人｜完成时限，每行一项"},
+  {k:"next",l:"下次会议",d:"时间与预告议题"}],
+ body:`# {{title}}会议纪要
+
+| 项目 | 内容 |
+|---|---|
+| 会议名称 | {{title}} |
+| 会议时间 | {{time}} |
+| 会议地点 | {{place}} |
+| 主持人 | {{host}} |
+| 记录人 | 莫扎特（【工号】） |
+| 参会人员 | {{attend}} |
+
+---
+
+## 一、议题与决议
+
+### 议题一：{{t1}}
+
+**汇报要点**
+
+{{p1}}
+
+**决议**
+
+{{r1}}
+
+### 议题二：{{t2}}
+
+**汇报要点**
+
+{{p2}}
+
+**决议**
+
+{{r2}}
+
+---
+
+## 二、待办事项
+
+{{todo}}
+
+---
+
+## 三、下次会议
+
+{{next}}`},
+
+{id:"TPL-06",name:"工作日报",cat:"报告族",desc:"每日工作汇报",
+ fields:[
+  {k:"date",l:"日期",v:"@todayW",req:1},
+  {k:"done",l:"今日完成",t:"area",req:1,d:"事项｜完成情况｜产出，每行一项"},
+  {k:"doing",l:"进行中事项",t:"area",d:"事项｜进度｜预计完成"},
+  {k:"issue",l:"问题与需求",t:"area",d:"问题｜影响｜需协助方"},
+  {k:"plan",l:"明日计划",t:"area"}],
+ body:`# 工作日报
+
+| 项目 | 内容 |
+|---|---|
+| 日期 | {{date}} |
+| 姓名 | 莫扎特 |
+| 工号 | 【工号】 |
+| 单位 | 管理部 |
+
+---
+
+## 一、今日完成
+
+{{done}}
+
+## 二、进行中事项
+
+{{doing}}
+
+## 三、问题与需求
+
+{{issue}}
+
+## 四、明日计划
+
+{{plan}}`},
+
+{id:"TPL-07",name:"工作月报",cat:"报告族",desc:"月度总结与下月计划",
+ fields:[
+  {k:"period",l:"报告期间",v:"@monthCN",req:1},
+  {k:"date",l:"报告日期",d:"2026年9月30日"},
+  {k:"kpi",l:"核心指标",t:"area",req:1,d:"指标｜本月｜上月｜环比，每行一项"},
+  {k:"done",l:"重点工作完成情况",t:"area",req:1,d:"目标 / 完成情况 / 关键动作 / 成效"},
+  {k:"gov",l:"数据治理进展",t:"area",d:"治理项｜治理内容｜治理目的｜进展"},
+  {k:"issue",l:"存在问题",t:"area",d:"问题｜根因｜影响｜对策"},
+  {k:"plan",l:"下月工作计划",t:"area"}],
+ body:`# 管理部月度工作报告
+
+报告期间：{{period}}
+报告人：莫扎特（【工号】）
+报告日期：{{date}}
+
+---
+
+## 一、本月核心指标
+
+{{kpi}}
+
+## 二、重点工作完成情况
+
+{{done}}
+
+## 三、数据治理进展
+
+| 治理项 | 治理内容 | 治理目的 | 本月进展 |
+|---|---|---|---|
+{{gov}}
+
+## 四、存在问题
+
+| 问题 | 根因分析 | 影响范围 | 拟对策 |
+|---|---|---|---|
+{{issue}}
+
+## 五、下月工作计划
+
+{{plan}}`},
+
+{id:"TPL-08",name:"出差报告",cat:"报告族",desc:"出差成果汇报与费用核销",
+ fields:[
+  {k:"reason",l:"出差事由",req:1},
+  {k:"place",l:"出差地点",req:1},
+  {k:"period",l:"出差起止",d:"2026年10月12日 至 10月14日，共3天"},
+  {k:"who",l:"同行人员"},
+  {k:"no",l:"关联单号",v:"@CC"},
+  {k:"task",l:"任务与完成情况",t:"area",req:1,d:"任务｜完成情况｜说明，每行一项"},
+  {k:"result",l:"主要成果",t:"area",req:1,d:"需量化"},
+  {k:"learn",l:"关键收获",t:"area"},
+  {k:"follow",l:"待跟进事项",t:"area",d:"事项｜责任人｜完成时限"},
+  {k:"cost",l:"费用明细",t:"area",d:"类别｜金额｜票据张数，每行一项"}],
+ body:`# 出差报告
+
+| 项目 | 内容 |
+|---|---|
+| 报告人 | 莫扎特（【工号】） |
+| 所属单位 | 管理部 |
+| 出差事由 | {{reason}} |
+| 出差地点 | {{place}} |
+| 出差起止 | {{period}} |
+| 同行人员 | {{who}} |
+| 关联单号 | {{no}} |
+
+---
+
+## 一、出差任务与完成情况
+
+{{task}}
+
+## 二、主要成果
+
+{{result}}
+
+## 三、关键收获与经验
+
+{{learn}}
+
+## 四、待跟进事项
+
+{{follow}}
+
+## 五、费用明细
+
+{{cost}}
+
+---
+
+报告人：＿＿＿＿＿＿　　日期：＿＿＿＿＿＿`},
+
+{id:"TPL-09",name:"请示",cat:"公文族",desc:"事前请示上级审批",
+ fields:[
+  {k:"title",l:"事项名称",req:1},
+  {k:"no",l:"文件字号",v:"资管字〔2026〕第 ___ 号"},
+  {k:"to",l:"受文单位",req:1},
+  {k:"why",l:"缘由说明",req:1,d:"因……，现就……请示如下"},
+  {k:"now",l:"基本情况",t:"area",req:1,d:"含数据支撑"},
+  {k:"problem",l:"存在问题",t:"area",req:1},
+  {k:"plan",l:"拟办方案",t:"area",req:1,d:"含实施步骤，应有倾向性意见"},
+  {k:"date",l:"发文日期",v:"@todayCN"}],
+ body:`# 关于{{title}}的请示
+
+{{no}}
+
+---
+
+{{to}}：
+
+　　因{{why}}，现就{{title}}请示如下：
+
+一、基本情况
+
+　　{{now}}
+
+二、存在问题
+
+　　{{problem}}
+
+三、拟办方案
+
+　　{{plan}}
+
+四、请示事项
+
+　　妥否，请批示。
+
+管理部
+{{date}}`},
+
+{id:"TPL-10",name:"会议报告",cat:"报告族",desc:"会议现场汇报稿（配 PPT）",
+ fields:[
+  {k:"title",l:"会议名称",req:1},
+  {k:"date",l:"汇报日期",v:"@todayCN"},
+  {k:"review",l:"工作回顾",t:"area",req:1},
+  {k:"kpi",l:"核心数据",t:"area",req:1,d:"区域｜总数｜新增｜减少｜环比，每行一项"},
+  {k:"result",l:"重点工作成果",t:"area",req:1,d:"工作项｜治理内容｜治理目的｜成果"},
+  {k:"issue",l:"问题与挑战",t:"area",d:"问题｜影响｜应对思路"},
+  {k:"plan",l:"下阶段规划",t:"area",req:1,d:"目标｜关键任务｜计划节点｜预期成效"},
+  {k:"need",l:"需支持事项",t:"area",d:"事项｜需求说明｜期望支持方"},
+  {k:"mins",l:"汇报时长（分钟）",v:"15"}],
+ body:`# {{title}}报告
+
+汇报单位：管理部
+汇报人：莫扎特（【工号】）
+汇报日期：{{date}}
+
+---
+
+## 一、工作回顾
+
+{{review}}
+
+### 核心数据
+
+| 区域 | 资产总数 | 本月新增 | 本月减少 | 环比 |
+|---|---|---|---|---|
+{{kpi}}
+
+## 二、重点工作成果
+
+| 序号 | 工作项 | 治理内容 | 治理目的 | 成果 |
+|---|---|---|---|---|
+{{result}}
+
+## 三、问题与挑战
+
+| 序号 | 问题 | 影响 | 应对思路 |
+|---|---|---|---|
+{{issue}}
+
+## 四、下一阶段规划
+
+| 序号 | 目标 | 关键任务 | 计划节点 | 预期成效 |
+|---|---|---|---|---|
+{{plan}}
+
+## 五、需支持事项
+
+| 序号 | 事项 | 需求说明 | 期望支持方 |
+|---|---|---|---|
+{{need}}
+
+---
+
+配套 PPT 结构：封面 → 工作回顾 → 重点成果 → 问题挑战 → 下阶段规划 → 需支持事项 → 致谢
+全程控制在 {{mins}} 分钟内。`}
+];
+
+/* ---------------- 部门知识库 ---------------- */
+/* K1 · 提炼自 inbox/资产指标与AI创新项目汇总-2026-09-23.md，数据快照 2026-09-14
+   权威文件：knowledge/01~04；修改知识内容应先改 knowledge/ 文件再同步此处 */
+const KNOW=[
+{id:"K-ZB-01",name:"人均电脑保有量",cat:"指标",src:"电脑资产管理指标看板",date:"2026-09-14",tags:["P1","09-30 上线","一人多机"],
+ body:"治理内容：确保一人一机，避免一人多机；多台需确认合理性并备注\n公式：四区在账电脑总数 ÷ 在册员工人数（过渡期用 AD 注册人员去重替代）\n基线：大陆 XX 台 / AD XX 人，人均 XX 台；一人多机 XX 人 / XX 台（多出 XX 台）\n阈值：人均 >1.2 预警；多机未备注占比 >5% 告警\n改善：月度拉取一人多机明细 → 资讯对口逐台确认并系统备注 → 无合理说明限期回收再分配"},
+{id:"K-ZB-02",name:"电脑资产闲置率",cat:"指标",src:"电脑资产管理指标看板",date:"2026-09-14",tags:["P1","09-30 上线","数据齐备","Win7 高危"],
+ body:"治理内容：避免闲置资产久放造成浪费，盘出库房中不常用的电脑\n公式：闲置率 = 连续 30 天未登录 AD 电脑数 ÷ AD 活跃总数；长闲置 = 连续 90 天未登录（回收候选）\n基线：AD 活跃 XX 台，30 天未登录 XX 台（XX）；90 天未登录 XX 台（XX），含 Win7 XX 台（XX，停止支持高危）\n阈值：闲置率 >10% 预警，>20% 红色告警\n改善：月度输出闲置清单 → 按 idle / off-domain / scrapped / test / low-use 五类根因分类 → 回收、报废或降级"},
+{id:"K-ZB-03",name:"离职员工电脑资产回收率",cat:"指标",src:"电脑资产管理指标看板",date:"2026-09-14",tags:["P2","10-18 上线","待接入"],
+ body:"治理内容：管控离职员工电脑资产流失，确保完整收回并格式化防止数据泄露\n公式：已回收并格式化台数 ÷ 应回收台数\n基线：待 AD × ICP 离职名单首次比对后建立（数据源比对中）\n阈值：<100% 告警；离职超 7 天未回收黄色预警，超 30 天红色告警\n改善：离职流程嵌入资产回收节点 → 格式化留痕 → 月度对账未回收清单"},
+{id:"K-ZB-04",name:"标配管理健康度",cat:"指标",src:"电脑资产管理指标看板",date:"2026-09-14",tags:["P2","10-18 上线","关联 AI 提案"],
+ body:"治理内容：检查主机名、杀毒、入域、命名规范是否符合集团标配，整改偏离 SOP 的终端\n公式：健康度 = Σ符合标配项 ÷ Σ应检标配项（主机名/杀毒/入域/命名加权）\n基线：命名不规范 XX 台（XX）；在账未入域 XX 台（XX）；防毒/终端数据未接入\n阈值：健康度 <95% 预警，<90% 红色告警\n改善：每周扫描偏离清单 → 推送资讯对口限期整改 → 复检闭环，月度通报排名\n关联：蒋梦谣「SAP 资产自检工作流」可支撑命名规范与状态逻辑检测"},
+{id:"K-ZB-05",name:"电脑采购成本",cat:"指标",src:"电脑资产管理指标看板",date:"2026-09-14",tags:["P2","10-20 上线","部分就绪"],
+ body:"治理内容：分类对比采购成本、识别异常波动，掌控预算与议价依据\n公式：品项均价 = Σ采购金额 ÷ Σ采购台数；波动率 =（本期均价 − 上期均价）÷ 上期均价\n基线：转投资采购日期覆盖 XX、金额覆盖 XX；大陆 ICP 金额字段缺失，价格曲线建设中\n阈值：单品项均价波动 >±15% 告警\n改善：季度复盘价格曲线 → 规格标准化建议 → 集中采购议价与预算滚动修正"},
+{id:"K-ZB-06",name:"电脑资产账实相符率",cat:"指标",src:"电脑资产管理指标看板",date:"2026-09-14",tags:["P2","10-31 上线","关联 AI 提案"],
+ body:"治理内容：确保台账（整合 AD、防毒、终端）与实物一致，并与 SAP 账线上比对\n公式：账实相符率 = 三源一致台数 ÷ 台账总台数；SAP 线上相符率 = 台账 ∩ SAP ÷ 台账总\n基线：台账-SAP 匹配率 XX（XX 台未匹配）；台账-AD 匹配率 XX（XX 台在账未入域）\n阈值：<98% 预警，<95% 红色告警\n改善：月度三源自动对账出差异清单 → 按单位分派核查 → 现场抽盘校准 → 回写台账并同步 SAP 闭环\n关联：蒋梦谣「低耐台账对账工作流」可支撑差异识别"},
+{id:"K-TA-01",name:"单位资讯资产与库存查询助手",cat:"提案",src:"创新提案5月",date:"2026-05",tags:["查","刘敏","Dify"],
+ body:"提报人：刘敏（旺能）\n核心能力：面向全单位，随时查看本单位人员资产及库存资产\n技术方案：Dify 数据库插件连接外部库；ETL 同步 SAP 三类资产 → 自然语言查询工作流（意图识别 → SQL 生成 → 结果格式化）"},
+{id:"K-TA-02",name:"资产备件库查询智能体",cat:"提案",src:"创新提案5月",date:"2026-05",tags:["查","黄燕林","Dify","含工时表"],
+ body:"提报人：黄燕林\n核心能力：跨单位查询闲置备件库存、位置、状态，为资产调拨提供依据，提高闲置利用率、减少重复采购\n技术方案：Dify 内置数据库 + Chatflow（Agent + 查询工具 + 结果模板）；含 4 步实施工时表"},
+{id:"K-TA-03",name:"资讯设备信息查询智能体",cat:"提案",src:"创新提案5月",date:"2026-05",tags:["查","邢趁军","已出成果"],
+ body:"提报人：邢趁军\n核心能力：查询设备型号、预估价格，支持同品项不同规格对比，辅助选型\n技术方案：Dify 工作流：开始（关键词）→ 代码执行（Python/Pandas 处理 Excel）→ LLM（对比分析）→ 结束（Markdown 表格）\n成熟度：已出成果展示"},
+{id:"K-TA-04",name:"智能数据自检工作流（双流）",cat:"提案",src:"创新提案5月",date:"2026-05",tags:["核","蒋梦谣","关联指标④⑥"],
+ body:"提报人：蒋梦谣 · 含 2 个工作流\n工作流 1 · SAP 资产自检：必填项缺失检测、存放位置命名校验、业务逻辑判断、数值合理性核查、重复建卡/一物多码预警\n工作流 2 · 低耐台账对账：名称+规格+位置三联合键匹配，识别数量差异/位置不符/有实无账/有账无实四类差异，输出差异清单+统计+整改建议\n关联：工作流 1 支撑治理指标④，工作流 2 支撑指标⑥"},
+{id:"K-TA-05",name:"报废报表自动生成与数据汇总",cat:"提案",src:"创新提案5月",date:"2026-05",tags:["报","丁淑洁"],
+ body:"提报人：丁淑洁\n核心能力：打通资产、财务、管理层三方数据，自动生成报废报表\n痛点：数据孤岛（版本混乱、滞后数周）；人工核对单周耗时超 10 小时；报废资产未及时核销导致账实不符"},
+{id:"K-TA-06",name:"Dify 盘点表自动生成流程",cat:"提案",src:"创新提案5月",date:"2026-05",tags:["报","董雪晴","完整工作流"],
+ body:"提报人：董雪晴\n核心能力：一键自动生成标准资产盘点表\n技术方案：上传文件触发流程 → Dify 自动解析 Excel → 提取结构化数据\n成熟度：有完整工作流设计"},
+{id:"K-TA-07",name:"资讯申请单智能选型",cat:"提案",src:"创新提案5月",date:"2026-05",tags:["办","杨文博"],
+ body:"提报人：杨文博\n核心能力：在资讯设备申请单「分配料号」节点新增智能选型按钮（非必选）→ 获取申请用途与设备信息 → 推荐符合要求的物料号并填入物料编码项\n技术方案：Dify + BPM / HTTP API 与业务系统交互"},
+{id:"K-TA-08",name:"Excel 数据提取智能体",cat:"提案",src:"创新提案5月",date:"2026-05",tags:["办","张源","每周自动化"],
+ body:"提报人：张源\n核心能力：替代每周手动 Excel 提取，自动化、标准化、零代码\n技术方案：上传 Excel → 按规则提取关键字段 → 输出结构化结果（表格/清单/汇总），支持复用"},
+{id:"K-JX-01",name:"四区资产基线",cat:"基线",src:"电脑资产管理指标看板",date:"2026-09-14",tags:["快照","XX"],
+ body:"大陆 XX / 中国台北 XX / 海外 XX / 转投资 XX，合计 XX 台（快照 2026-09-14）\n历史口径备注：早期口径已停用（数值脱敏），自 09-14 快照起以本条为准"},
+{id:"K-JX-02",name:"AD 域关键口径",cat:"基线",src:"电脑资产管理指标看板",date:"2026-09-14",tags:["AD","闲置率"],
+ body:"AD 活跃电脑总数 XX 台（闲置率分母）\n30 天未登录 XX 台（XX）· 90 天未登录 XX 台（XX，回收候选）\n其中 Windows 7 XX 台（占 XX，停止支持高危，优先处置）\nAD 注册人员去重 XX 人（人均保有量分母，过渡期口径）"},
+{id:"K-JX-03",name:"台账关键口径",cat:"基线",src:"电脑资产管理指标看板",date:"2026-09-14",tags:["台账","对账"],
+ body:"一人多机 XX 人 / XX 台（多出 XX 台，需逐台确认合理性并备注）\n在账未入域 XX 台（占大陆在账 XX）· 命名不规范 XX 台（XX）\n台账-SAP 线上匹配率 XX（XX 台未匹配）· 台账-AD 匹配率 XX"},
+{id:"K-KJ-01",name:"提案分类框架 · 查核报办",cat:"框架",src:"AI 创新项目汇总",date:"2026-09-14",tags:["业务价值","分类"],
+ body:"查 — 数据查询（3 项）：资产/库存/备件/设备信息即时查询\n核 — 校验对账（1 项含 2 工作流）：SAP 自检、台账对账、差异识别\n报 — 报表自动化（2 项）：报废报表、盘点表自动生成\n办 — 流程嵌入（2 项）：申请单选型、Excel 提取"},
+{id:"K-KJ-02",name:"提案成熟度分层",cat:"框架",src:"AI 创新项目汇总",date:"2026-09-14",tags:["成熟度","分类"],
+ body:"已出成果展示：邢趁军（资讯设备信息查询）\n有完整工作流设计：蒋梦谣（自检+对账双流）、董雪晴（盘点表）、黄燕林（备件库，含工时表）\n有方案与技术路径：刘敏（查询助手）、杨文博（智能选型）、丁淑洁（报废报表）、张源（Excel 提取）"}
+];
+
+/* M6 指标异动阈值 · 运行时副本，权威源 memory/thresholds.md，修改阈值只改该文件后同步此处 */
+const THR=[
+ {name:"人均电脑保有量",warn:"人均 >1.2",alarm:"多机未备注 >5%",base:"XX 台/人"},
+ {name:"电脑资产闲置率",warn:">10%",alarm:">20%",base:"XX（已超红线）"},
+ {name:"离职员工电脑资产回收率",warn:"<100%",alarm:"超 30 天未回收",base:"待建立"},
+ {name:"标配管理健康度",warn:"<95%",alarm:"<90%",base:"待测（命名不规范 XX 台）"},
+ {name:"电脑采购成本",warn:"—",alarm:"单品均价波动 >±15%",base:"价格曲线建设中"},
+ {name:"电脑资产账实相符率",warn:"<98%",alarm:"<95%",base:"XX（台账-SAP）"}
+];
+
+/* ---------------- 授权规则 ---------------- */
+const LEVELS=[
+{code:"L0",name:"只读",color:"l0",desc:"无副作用，直接执行，不打扰用户",
+ ex:["查看日程 / 待办","检索邮件 / 消息","查询资产数据（SELECT）","读取本地文件"]},
+{code:"L1",name:"低风险写",color:"l1",desc:"仅影响本地，执行后告知即可",
+ ex:["生成 Word / PDF / 报告","写入记忆库","创建本地记录","更新个人档案"]},
+{code:"L2",name:"中风险",color:"l2",desc:"会占用他人资源，执行前需确认",
+ ex:["创建日程","创建待办","修改已有日程 / 待办","变更本地配置"]},
+{code:"L3",name:"高风险",color:"l3",desc:"对外可见，需确认并逐条列明影响",
+ ex:["发送邮件","发送群消息","发起会议邀请","通知他人交材料"]},
+{code:"L4",name:"禁止自动",color:"l4",desc:"数据安全红线，一律不做，需人工操作",
+ ex:["数据库 INSERT / UPDATE / DELETE","删除文件","批量数据变更","导出含敏感数据的文件"]}
+];
+
+const ACTIONS=[
+ ["L0","查看日程 / 待办","直接执行"],
+ ["L0","检索邮件 / 消息","直接执行"],
+ ["L0","查询资产数据（只读）","直接执行"],
+ ["L0","读取本地文件","直接执行"],
+ ["L0","查看记忆库内容","直接执行"],
+ ["L1","生成 Word / PDF / 报告","执行后告知"],
+ ["L1","生成 HTML 看板","执行后告知"],
+ ["L1","写入记忆库","执行后告知"],
+ ["L1","更新个人档案","执行后告知"],
+ ["L1","创建本地记录","执行后告知"],
+ ["L2","创建日程","执行前确认"],
+ ["L2","创建待办","执行前确认"],
+ ["L2","修改已有日程 / 待办","执行前确认"],
+ ["L2","变更本地配置","执行前确认"],
+ ["L2","调整主动感知推送时间","执行前确认"],
+ ["L3","发送邮件","确认 + 列明影响"],
+ ["L3","发送群消息","确认 + 列明影响"],
+ ["L3","发起会议邀请","确认 + 列明影响"],
+ ["L3","通知他人交材料","确认 + 列明影响"],
+ ["L3","转发文件给外部人员","确认 + 列明影响"],
+ ["L4","数据库 INSERT / UPDATE / DELETE","一律不做，需人工执行"],
+ ["L4","删除文件","一律不做，需人工执行"],
+ ["L4","批量数据变更","一律不做，需人工执行"],
+ ["L4","导出含敏感数据的文件","一律不做，需人工执行"]
+];
+
+/* ---------------- 主动感知场景 ---------------- */
+const SCENES=[
+{id:"morning",t:"每日晨报",d:"今日日程 + 到期待办 + 未读要点 + 指标异动",time:"08:30",on:true},
+{id:"weekly",t:"周计划",d:"本周会议 + 本周到期事项 + 上周未完成项",time:"08:30",on:true,wd:"周一"},
+{id:"premeet",t:"会前提醒",d:"议程 + 参会人 + 相关历史材料链接",time:"会前60分",on:true,fix:1},
+{id:"todo",t:"待办催办",d:"到期前 1 天提醒；逾期当天再次提醒",time:"09:00",on:true},
+{id:"metric",t:"指标异动",d:"关键指标环比超阈值时推送，附可能原因",time:"09:30",on:true},
+{id:"closing",t:"下班收口",d:"今日完成情况 + 明日待办 + 未处理事项",time:"18:00",on:false}
+];
+
+/* ---------------- 存储 ---------------- */
+function load(k,def){try{const s=localStorage.getItem(k);return s?JSON.parse(s):def}catch(e){return def}}
+function save(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+
+let MEM=load(K_MEM,{
+  L1:[{t:"莫扎特 / 【工号】 / 管理部",d:"2026-09-23"}],
+  L2:[
+    {t:"月报按区域拆分展示，不做单一累计总量 KPI",d:"2026-09-23"},
+    {t:"治理项统一用「治理内容 / 治理目的」两栏表述",d:"2026-09-23"},
+    {t:"问题描述必须带根因分析，不能只写现象",d:"2026-09-23"},
+    {t:"地区表述一律使用「中国台北」",d:"长期有效"},
+    {t:"不使用「领导」等称谓，措辞中性化",d:"长期有效"},
+    {t:"文书规范：A4 纸张、宋体、首行缩进 2 字符",d:"2026-09-23"}
+  ],
+  L3:[{t:"莫扎特 为主要对接人（【工号】）",d:"2026-09-23"}],
+  L4:[
+    {t:"四区资产基线：台数随当期看板快照更新（发布版已脱敏）",d:"2026-09-14"},
+    {t:"ITZC 系统 v3.1 部署于内网（地址随本地环境配置）",d:"2026-09-23"},
+    {t:"AD 登录不活跃阈值锁定 90 天",d:"2026-09-23"}
+  ],
+  L5:[
+    {t:"2026-09-23 完成个人办公智能体项目立项，建成 10 套模板库",d:"2026-09-23"},
+    {t:"2026-09-23 补齐 M6/M7/M8 增强层模块定义",d:"2026-09-23"}
+  ]
+});
+let SENSE=load(K_SENSE,null);
+let AUDIT=load(K_AUDIT,[
+  {d:"08:30",lv:"L0",act:"查询日程",obj:"2026-09-23",res:"成功，3 项"},
+  {d:"08:30",lv:"L0",act:"查询待办",obj:"到期待办",res:"成功，2 项"},
+  {d:"09:12",lv:"L1",act:"写入记忆",obj:"月报格式偏好",res:"成功"},
+  {d:"09:35",lv:"L1",act:"生成文档",obj:"资产盘点通知.md",res:"成功"},
+  {d:"10:20",lv:"L2",act:"创建日程",obj:"10/08 14:00 评审会",res:"已确认"}
+]);
+
+if(!SENSE){SENSE={};SCENES.forEach(s=>SENSE[s.id]={on:s.on,time:s.time});save(K_SENSE,SENSE)}
+
+function persistMem(){save(K_MEM,MEM)}
+function persistSense(){save(K_SENSE,SENSE)}
+function persistAudit(){save(K_AUDIT,AUDIT)}
+
+/* ---------------- 工具 ---------------- */
+const $=(s,r)=>(r||document).querySelector(s);
+const $$=(s,r)=>Array.prototype.slice.call((r||document).querySelectorAll(s));
+function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove("on"),1900)}
+function nowTime(){const d=new Date();return String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0")}
+function pad(n){return String(n).padStart(2,"0")}
+function todayStr(){const d=new Date();return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate())}
+function countMem(){return Object.keys(MEM).reduce((a,k)=>a+MEM[k].length,0)}
+function cnDate(d){return d.getFullYear()+"年"+(d.getMonth()+1)+"月"+d.getDate()+"日"}
+function ymd(d){return ""+d.getFullYear()+pad(d.getMonth()+1)+pad(d.getDate())}
+function fieldVal(f){
+  var d=new Date();
+  if(f.v===undefined)return "";
+  if(f.v==="@todayCN")return cnDate(d);
+  if(f.v==="@todayW") return cnDate(d)+"（"+WD[d.getDay()]+"）";
+  if(f.v==="@monthCN")return d.getFullYear()+"年"+(d.getMonth()+1)+"月";
+  if(f.v==="@NL")return "NL"+ymd(d)+"001";
+  if(f.v==="@QC")return "QC"+ymd(d)+"001";
+  if(f.v==="@CC")return "CC"+ymd(d)+"001";
+  return f.v;
+}
+function lvPill(lv){
+  const m={L0:"green",L1:"blue",L2:"orange",L3:"red",L4:"dark"};
+  return '<span class="pill '+(m[lv]||"gray")+'">'+lv+'</span>';
+}
+
+/* ---------------- 时钟 ---------------- */
+function tick(){$("#clock").textContent=todayStr()+" "+nowTime();}
+tick();setInterval(tick,30000);
+
+const WD=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+$("#dash-date").textContent=(function(){const d=new Date();
+  return d.getFullYear()+"年"+(d.getMonth()+1)+"月"+d.getDate()+"日 · "+WD[d.getDay()]+
+  " · 已加载档案 M0，模板库 M1，增强层 M7 / M8 就绪";})();
+
+/* ---------------- 导航 ---------------- */
+$$(".nav-item").forEach(b=>b.addEventListener("click",()=>{
+  $$(".nav-item").forEach(x=>x.classList.remove("on"));
+  b.classList.add("on");
+  $$(".view").forEach(v=>v.classList.remove("on"));
+  $("#v-"+b.dataset.v).classList.add("on");
+  $("#side").classList.remove("on");
+  window.scrollTo(0,0);
+}));
+$$("[data-go]").forEach(b=>b.addEventListener("click",()=>{
+  const t=$('.nav-item[data-v="'+b.dataset.go+'"]');if(t)t.click();
+}));
+
+/* ---------------- 工作台 ---------------- */
+const SENSE_TEXT={
+  morning:"08:30 · 今日晨报已推送（3 项日程 / 2 项待办）",
+  weekly:"周一 08:30 · 周计划（本周 4 场会议，2 项到期）",
+  premeet:"会前 60 分钟 · 提醒议程与参会人",
+  todo:"09:00 · 待办催办（1 项明日到期）",
+  metric:"09:30 · 指标异动（闲置率超红色告警线）",
+  closing:"18:00 · 下班收口（今日完成 3 项）"
+};
+function renderDash(){
+  $("#s-mem").textContent=countMem();
+  $("#s-act").textContent=AUDIT.length;
+  $("#st-mem").textContent=countMem()+" 条";
+  const onn=Object.keys(SENSE).filter(k=>SENSE[k].on).length;
+  $("#st-sense").textContent=onn+" 项";
+  $("#st-tpl").textContent=TPL.length+" 套";
+
+  const box=$("#dash-sense");
+  const rows=SCENES.filter(s=>SENSE[s.id]&&SENSE[s.id].on);
+  box.innerHTML=rows.length
+    ? rows.map(s=>'<div style="display:flex;gap:8px;padding:5px 0;border-bottom:1px solid var(--bd)">'+
+        '<span class="pill blue" style="flex:0 0 auto">'+esc(SENSE[s.id].time)+'</span>'+
+        '<span style="flex:1;color:var(--t2)">'+esc(s.t)+'</span></div>').join("")
+    : '<span style="color:var(--t3)">未开启任何推送场景</span>';
+
+  const a=AUDIT.slice(-6).reverse();
+  $("#dash-audit").innerHTML=a.length?a.map(r=>
+    '<tr><td class="mono">'+esc(r.d)+'</td><td>'+lvPill(r.lv)+'</td><td>'+esc(r.act)+
+    (r.obj?'<span style="color:var(--t3)"> · '+esc(r.obj)+'</span>':'')+'</td><td>'+esc(r.res)+'</td></tr>').join("")
+    :'<tr><td colspan="4" class="empty">暂无记录</td></tr>';
+}
+
+$$(".quick button").forEach(b=>b.addEventListener("click",()=>{
+  AUDIT.push({d:nowTime(),lv:"L0",act:"接收指令",obj:b.dataset.q.slice(0,24),res:"已记录"});
+  persistAudit();renderDash();renderAudit();
+  toast("已记录指令：" + b.dataset.q.slice(0,18));
+}));
+
+/* ---------------- 模板库 ---------------- */
+let curCat="全部";
+function renderTplTabs(){
+  const cats=["全部"].concat(Array.from(new Set(TPL.map(t=>t.cat))));
+  $("#tpl-tabs").innerHTML=cats.map(c=>{
+    const n=c==="全部"?TPL.length:TPL.filter(t=>t.cat===c).length;
+    return '<button class="tab'+(c===curCat?" on":"")+'" data-c="'+esc(c)+'">'+esc(c)+'<span class="n">'+n+'</span></button>';
+  }).join("");
+  $$("#tpl-tabs .tab").forEach(b=>b.addEventListener("click",()=>{curCat=b.dataset.c;renderTplTabs();renderTplGrid()}));
+}
+function renderTplGrid(){
+  const list=curCat==="全部"?TPL:TPL.filter(t=>t.cat===curCat);
+  $("#tpl-grid").innerHTML=list.map(t=>
+    '<div class="tpl-card" data-id="'+t.id+'">'+
+      '<div class="tno">'+t.id+'</div>'+
+      '<div class="tnm">'+esc(t.name)+'</div>'+
+      '<div class="tds">'+esc(t.desc)+'</div>'+
+      '<div class="tft"><span class="pill gray">'+esc(t.cat)+'</span>'+
+      '<span style="margin-left:auto;color:var(--pri);font-size:12px">填写生成 →</span></div>'+
+    '</div>').join("");
+  $$("#tpl-grid .tpl-card").forEach(c=>c.addEventListener("click",()=>openTpl(c.dataset.id)));
+}
+$("#cnt-tpl").textContent=TPL.length;
+
+/* ---------------- 抽屉 ---------------- */
+function openDrawer(title,sub,body,foot){
+  $("#dw-title").textContent=title;
+  $("#dw-sub").textContent=sub||"";
+  $("#dw-body").innerHTML=body;
+  $("#dw-foot").innerHTML=foot||"";
+  $("#mask").classList.add("on");$("#drawer").classList.add("on");
+}
+function closeDrawer(){$("#mask").classList.remove("on");$("#drawer").classList.remove("on")}
+$("#dw-close").addEventListener("click",closeDrawer);
+$("#mask").addEventListener("click",closeDrawer);
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeDrawer()});
+
+let curTpl=null;
+function openTpl(id){
+  const t=TPL.filter(x=>x.id===id)[0];if(!t)return;
+  curTpl=t;
+  const form=t.fields.map(f=>{
+    const nm=esc(f.l)+(f.req?'<span class="req">*</span>':'');
+    const v=esc(fieldVal(f));
+    let el;
+    if(f.t==="area") el='<textarea data-k="'+f.k+'" placeholder="'+esc(f.d||"")+'">'+v+'</textarea>';
+    else if(f.t==="sel") el='<select data-k="'+f.k+'">'+f.o.map(o=>'<option>'+esc(o)+'</option>').join("")+'</select>';
+    else el='<input type="text" data-k="'+f.k+'" value="'+v+'" placeholder="'+esc(f.d||"")+'">';
+    return '<label class="f"><span class="fname">'+nm+'</span>'+el+'</label>';
+  }).join("");
+  openDrawer(t.name,t.id+" · "+t.cat+" · "+t.desc,
+    form+'<div class="card-h" style="margin-top:18px"><h2>生成结果</h2></div>'+
+    '<div class="out" id="tpl-out" style="color:var(--t3)">填写上方字段后生成…</div>',
+    '<button class="btn" id="tpl-reset">清空</button>'+
+    '<button class="btn" id="tpl-gen">生成文书</button>'+
+    '<button class="btn pri" id="tpl-copy">复制正文</button>');
+  $("#tpl-reset").addEventListener("click",()=>{$$("#dw-body [data-k]").forEach(i=>i.value="");$("#tpl-out").textContent="填写上方字段后生成…";$("#tpl-out").style.color="var(--t3)"});
+  $("#tpl-gen").addEventListener("click",genTpl);
+  $("#tpl-copy").addEventListener("click",()=>{
+    const txt=$("#tpl-out").textContent;
+    if(!txt||txt.indexOf("填写上方")===0){toast("请先生成文书");return}
+    copyText(txt);
+  });
+}
+function val(k){const el=$('#dw-body [data-k="'+k+'"]');return el?el.value.trim():""}
+function genTpl(){
+  if(!curTpl)return;
+  for(const f of curTpl.fields){
+    if(f.req&&!val(f.k)){toast("请填写："+f.l);const el=$('#dw-body [data-k="'+f.k+'"]');if(el)el.focus();return}
+  }
+  let out=curTpl.body;
+  curTpl.fields.forEach(f=>{
+    let v=val(f.k);
+    if(f.k==="no"&&!v) v="（待系统生成）";
+    out=out.split("{{"+f.k+"}}").join(v);
+    if(!v){out=out.split("{{"+f.k+"}}").join("")}
+  });
+  out=out.split("\n").filter(l=>!(/^\s*$/.test(l)&&false)).join("\n");
+  const box=$("#tpl-out");box.textContent=out.trim();box.style.color="var(--t1)";
+  AUDIT.push({d:nowTime(),lv:"L1",act:"生成文书",obj:curTpl.name,res:"成功"});
+  persistAudit();renderDash();renderAudit();
+  toast("已生成："+curTpl.name);
+}
+function copyText(t){
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(t).then(()=>toast("已复制到剪贴板"),()=>fallbackCopy(t));
+  }else fallbackCopy(t);
+}
+function fallbackCopy(t){
+  const ta=document.createElement("textarea");ta.value=t;ta.style.position="fixed";ta.style.opacity="0";
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand("copy");toast("已复制到剪贴板")}catch(e){toast("复制失败，请手动选择")}
+  document.body.removeChild(ta);
+}
+
+/* ---------------- 记忆库 ---------------- */
+const MEM_META={
+  L1:{n:"身份层",d:"姓名、工号、单位等基础身份信息",c:"blue"},
+  L2:{n:"偏好层",d:"文书规范、表述习惯、格式要求",c:"green"},
+  L3:{n:"关系层",d:"对接人、单位架构、职责分工",c:"orange"},
+  L4:{n:"事实层",d:"项目信息、数据口径、约定规则",c:""},
+  L5:{n:"事件层",d:"历史决策、已完成事项、历史产出",c:"gray"}
+};
+let curLv="L2";
+function renderMemTabs(){
+  $("#mem-tabs").innerHTML=Object.keys(MEM_META).map(k=>
+    '<button class="tab'+(k===curLv?" on":"")+'" data-lv="'+k+'">L'+k.slice(1)+" "+MEM_META[k].n+
+    '<span class="n">'+MEM[k].length+'</span></button>').join("");
+  $$("#mem-tabs .tab").forEach(b=>b.addEventListener("click",()=>{curLv=b.dataset.lv;renderMemTabs();renderMemList()}));
+  $("#cnt-mem").textContent=countMem();
+}
+function renderMemList(){
+  $("#mem-title").textContent="L"+curLv.slice(1)+" "+MEM_META[curLv].n;
+  $("#mem-desc").textContent=MEM_META[curLv].d;
+  const list=MEM[curLv];
+  $("#mem-list").innerHTML=list.length?list.map((m,i)=>
+    '<div class="mem-item"><div class="txt">'+esc(m.t)+
+    '<div class="meta">记录于 '+esc(m.d)+'</div></div>'+
+    '<div class="act"><button class="btn sm ghost danger" data-del="'+i+'">删除</button></div></div>').join("")
+    :'<div class="empty">该层级暂无记忆</div>';
+  $$("#mem-list [data-del]").forEach(b=>b.addEventListener("click",()=>{
+    const i=+b.dataset.del;
+    MEM[curLv].splice(i,1);persistMem();renderMemTabs();renderMemList();renderDash();
+    toast("已删除该条记忆");
+  }));
+}
+$("#mem-add").addEventListener("click",()=>{
+  openDrawer("新增记忆","L"+curLv.slice(1)+" "+MEM_META[curLv].n+" · "+MEM_META[curLv].d,
+    '<label class="f"><span class="fname">记忆内容<span class="req">*</span></span>'+
+    '<textarea id="nm-t" placeholder="例：以后月报都要按区域拆分，不要累计总量"></textarea></label>'+
+    '<label class="f"><span class="fname">所属层级</span><select id="nm-lv">'+
+    Object.keys(MEM_META).map(k=>'<option value="'+k+'"'+(k===curLv?" selected":"")+'>L'+k.slice(1)+" "+MEM_META[k].n+'</option>').join("")+
+    '</select></label>'+
+    '<p class="note">提示：在对话中直接说「记住：……」也可写入记忆，无需手动操作。</p>',
+    '<button class="btn" id="nm-cancel">取消</button><button class="btn pri" id="nm-ok">保存</button>');
+  $("#nm-cancel").addEventListener("click",closeDrawer);
+  $("#nm-ok").addEventListener("click",()=>{
+    const t=$("#nm-t").value.trim(),lv=$("#nm-lv").value;
+    if(!t){toast("请填写记忆内容");return}
+    MEM[lv].push({t:t,d:todayStr()});
+    persistMem();curLv=lv;renderMemTabs();renderMemList();renderDash();
+    AUDIT.push({d:nowTime(),lv:"L1",act:"写入记忆",obj:t.slice(0,20),res:"成功"});
+    persistAudit();renderAudit();
+    closeDrawer();toast("已写入 "+lv+" 记忆库");
+  });
+});
+
+/* ---------------- 授权规则 ---------------- */
+function renderAuth(){
+  $("#lvl-grid").innerHTML=LEVELS.map(l=>
+    '<div class="lvl '+l.color+'">'+
+      '<div class="lh"><span class="code">'+l.code+'</span><span class="ln">'+l.name+'</span></div>'+
+      '<div class="ld">'+l.desc+'</div>'+
+      l.ex.map(e=>'<div class="le">'+esc(e)+'</div>').join("")+
+    '</div>').join("");
+  renderAuthTable("");
+}
+function renderAuthTable(q){
+  const rows=ACTIONS.filter(a=>!q||a[0].toLowerCase().indexOf(q.toLowerCase())>=0||a[1].indexOf(q)>=0);
+  $("#auth-tbody").innerHTML=rows.length?rows.map(a=>
+    '<tr><td>'+lvPill(a[0])+'</td><td>'+esc(a[1])+'</td><td class="note">'+esc(a[2])+'</td></tr>').join("")
+    :'<tr><td colspan="3" class="empty">无匹配动作</td></tr>';
+}
+$("#auth-search").addEventListener("input",e=>renderAuthTable(e.target.value.trim()));
+
+/* ---------------- 主动感知 ---------------- */
+function renderSense(){
+  $("#sense-list").innerHTML=SCENES.map(s=>{
+    const st=SENSE[s.id]||{on:false,time:s.time};
+    return '<div class="scene">'+
+      '<button class="sw'+(st.on?" on":"")+'" data-sw="'+s.id+'" aria-label="开关"></button>'+
+      '<div class="sc-main"><div class="sc-t">'+esc(s.t)+
+        (s.wd?' <span class="pill gray">'+s.wd+'</span>':'')+'</div>'+
+        '<div class="sc-d">'+esc(s.d)+'</div></div>'+
+      '<div class="sc-time">'+(s.fix
+        ? '<span class="pill blue">'+esc(st.time||s.time)+'</span>'
+        : '<input type="text" class="mono" data-tm="'+s.id+'" value="'+esc(st.time||s.time)+'" style="text-align:center">')
+      +'</div></div>';
+  }).join("");
+  $$("#sense-list [data-sw]").forEach(b=>b.addEventListener("click",()=>{
+    const id=b.dataset.sw;
+    SENSE[id].on=!SENSE[id].on;
+    persistSense();renderSense();renderDash();
+    AUDIT.push({d:nowTime(),lv:"L2",act:(SENSE[id].on?"开启":"关闭")+"推送",obj:SCENES.filter(s=>s.id===id)[0].t,res:"已确认"});
+    persistAudit();renderAudit();
+    toast((SENSE[id].on?"已开启":"已关闭")+"："+SCENES.filter(s=>s.id===id)[0].t);
+  }));
+  $$("#sense-list [data-tm]").forEach(i=>i.addEventListener("change",()=>{
+    const id=i.dataset.tm;SENSE[id].time=i.value.trim()||SCENES.filter(s=>s.id===id)[0].time;
+    persistSense();renderDash();toast("推送时间已更新");
+  }));
+}
+$("#sense-reset").addEventListener("click",()=>{
+  SENSE={};SCENES.forEach(s=>SENSE[s.id]={on:s.on,time:s.time});
+  persistSense();renderSense();renderDash();toast("已恢复默认配置");
+});
+
+/* ---------------- 部门知识库视图 ---------------- */
+const KNOW_CAT_COLOR={"指标":"blue","提案":"green","基线":"orange","框架":"gray"};
+let knowCat="全部",knowQ="";
+function renderKnowThr(){
+  $("#thr-tbody").innerHTML=THR.map(t=>
+    '<tr><td>'+esc(t.name)+'</td><td class="note">'+esc(t.warn)+'</td><td class="note">'+esc(t.alarm)+'</td><td class="note">'+esc(t.base)+'</td></tr>').join("");
+}
+function renderKnowTabs(){
+  const cats=["全部","指标","提案","基线","框架"];
+  $("#know-tabs").innerHTML=cats.map(c=>{
+    const n=c==="全部"?KNOW.length:KNOW.filter(k=>k.cat===c).length;
+    return '<button class="tab'+(c===knowCat?" on":"")+'" data-c="'+c+'">'+c+'<span class="n">'+n+'</span></button>';
+  }).join("");
+  $$("#know-tabs .tab").forEach(b=>b.addEventListener("click",()=>{knowCat=b.dataset.c;renderKnowTabs();renderKnowGrid()}));
+  $("#cnt-know").textContent=KNOW.length;
+}
+function renderKnowGrid(){
+  const q=knowQ;
+  const list=KNOW.filter(k=>(knowCat==="全部"||k.cat===knowCat)&&
+    (!q||k.name.indexOf(q)>=0||k.body.indexOf(q)>=0||(k.tags||[]).some(t=>t.indexOf(q)>=0)));
+  $("#know-grid").innerHTML=list.length?list.map(k=>
+    '<div class="tpl-card" data-id="'+k.id+'">'+
+      '<div class="tno">'+k.id+'</div>'+
+      '<div class="tnm">'+esc(k.name)+'</div>'+
+      '<div class="tds">'+esc(k.body.split("\n")[0])+'</div>'+
+      '<div class="tft"><span class="pill '+(KNOW_CAT_COLOR[k.cat]||"gray")+'">'+k.cat+'</span>'+
+      '<span style="margin-left:auto;color:var(--t3);font-size:12px">快照 '+k.date+'</span></div>'+
+    '</div>').join("")
+    :'<div class="empty">无匹配知识条目</div>';
+  $$("#know-grid .tpl-card").forEach(c=>c.addEventListener("click",()=>openKnow(c.dataset.id)));
+}
+function openKnow(id){
+  const k=KNOW.filter(x=>x.id===id)[0];if(!k)return;
+  openDrawer(k.name,k.cat+" · 来源："+k.src+" · 快照 "+k.date,
+    '<pre class="out" style="white-space:pre-wrap;font-family:inherit;line-height:1.8">'+esc(k.body)+'</pre>'+
+    ((k.tags&&k.tags.length)?'<div style="margin-top:10px">'+k.tags.map(t=>'<span class="pill gray" style="margin-right:6px">'+esc(t)+'</span>').join("")+'</div>':''),
+    '<button class="btn" id="kw-copy">复制全文</button>');
+  $("#kw-copy").addEventListener("click",()=>copyText(k.name+"\n\n"+k.body));
+}
+$("#know-search").addEventListener("input",e=>{knowQ=e.target.value.trim();renderKnowGrid()});
+
+/* ---------------- 审计日志 ---------------- */
+function renderAudit(){
+  const f=$("#audit-filter").value;
+  const rows=AUDIT.slice().reverse().filter(r=>!f||r.lv===f);
+  $("#audit-tbody").innerHTML=rows.length?rows.map(r=>
+    '<tr><td class="mono">'+esc(r.d)+'</td><td>'+lvPill(r.lv)+'</td><td>'+esc(r.act)+
+    '</td><td class="note">'+esc(r.obj||"—")+'</td><td>'+esc(r.res)+'</td></tr>').join("")
+    :'<tr><td colspan="5" class="empty">该等级暂无记录</td></tr>';
+  $("#cnt-audit").textContent=AUDIT.length;
+}
+$("#audit-filter").addEventListener("change",renderAudit);
+$("#audit-add").addEventListener("click",()=>{
+  openDrawer("记录动作","手动补录一条审计记录",
+    '<label class="f"><span class="fname">动作名称<span class="req">*</span></span><input type="text" id="na-act" placeholder="如：发送邮件"></label>'+
+    '<label class="f"><span class="fname">授权等级</span><select id="na-lv">'+
+      LEVELS.map(l=>'<option value="'+l.code+'">'+l.code+" "+l.name+'</option>').join("")+'</select></label>'+
+    '<label class="f"><span class="fname">对象</span><input type="text" id="na-obj" placeholder="如：莫扎特 @ 资产报表"></label>'+
+    '<label class="f"><span class="fname">结果</span><input type="text" id="na-res" value="成功"></label>',
+    '<button class="btn" id="na-cancel">取消</button><button class="btn pri" id="na-ok">保存</button>');
+  $("#na-cancel").addEventListener("click",closeDrawer);
+  $("#na-ok").addEventListener("click",()=>{
+    const act=$("#na-act").value.trim();
+    if(!act){toast("请填写动作名称");return}
+    AUDIT.push({d:nowTime(),lv:$("#na-lv").value,act:act,obj:$("#na-obj").value.trim(),res:$("#na-res").value.trim()||"成功"});
+    persistAudit();renderAudit();renderDash();closeDrawer();toast("已记录");
+  });
+});
+
+/* ---------------- 初始化 ---------------- */
+renderDash();renderTplTabs();renderTplGrid();renderMemTabs();renderMemList();
+renderAuth();renderSense();renderAudit();
+renderKnowThr();renderKnowTabs();renderKnowGrid();
+
+})();
+</script>
+</body>
+</html>
