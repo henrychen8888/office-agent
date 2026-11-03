@@ -1,0 +1,1392 @@
+{
+ "1_首页": {
+  "file": "slideLayout1.xml",
+  "slides": [
+   {
+    "shapes": [
+     {
+      "name": "标题 1",
+      "ph_type": "ctrTitle",
+      "pos_cm": [
+       1.22,
+       3.01
+      ],
+      "size_cm": [
+       14.58,
+       1.38
+      ],
+      "anchor": "b",
+      "levels": {
+       "lvl1pPr": {
+        "size_pt": 27.0,
+        "bold": true,
+        "italic": false,
+        "color": "#333333",
+        "latin_font": "微软雅黑",
+        "ea_font": "微软雅黑",
+        "layout_cm": {
+         "align": "l"
+        }
+       }
+      }
+     },
+     {
+      "name": "副标题 2",
+      "ph_type": "subTitle",
+      "pos_cm": [
+       1.22,
+       4.76
+      ],
+      "size_cm": [
+       13.78,
+       1.21
+      ],
+      "levels": {
+       "lvl1pPr": {
+        "size_pt": 18.0,
+        "layout_cm": {
+         "marL": 0.0,
+         "indent": 0.0,
+         "align": "l"
+        }
+       },
+       "lvl2pPr": {
+        "size_pt": 15.0,
+        "layout_cm": {
+         "marL": 0.9525,
+         "indent": 0.0,
+         "align": "ctr"
+        }
+       },
+       "lvl3pPr": {
+        "size_pt": 13.5,
+        "layout_cm": {
+         "marL": 1.905,
+         "indent": 0.0,
+         "align": "ctr"
+        }
+       },
+       "lvl4pPr": {
+        "size_pt": 12.0,
+        "layout_cm": {
+         "marL": 2.8575,
+         "indent": 0.0,
+         "align": "ctr"
+        }
+       },
+       "lvl5pPr": {
+        "size_pt": 12.0,
+        "layout_cm": {
+         "marL": 3.81,
+         "indent": 0.0,
+         "align": "ctr"
+        }
+       },
+       "lvl6pPr": {
+        "size_pt": 12.0,
+        "layout_cm": {
+         "marL": 4.7625,
+         "indent": 0.0,
+         "align": "ctr"
+        }
+       },
+       "lvl7pPr": {
+        "size_pt": 12.0,
+        "layout_cm": {
+         "marL": 5.715,
+         "indent": 0.0,
+         "align": "ctr"
+        }
+       },
+       "lvl8pPr": {
+        "size_pt": 12.0,
+        "layout_cm": {
+         "marL": 6.6675,
+         "indent": 0.0,
+         "align": "ctr"
+        }
+       },
+       "lvl9pPr": {
+        "size_pt": 12.0,
+        "layout_cm": {
+         "marL": 7.62,
+         "indent": 0.0,
+         "align": "ctr"
+        }
+       }
+      }
+     },
+     {
+      "name": "内容占位符 33",
+      "ph_type": null,
+      "pos_cm": [
+       2.35,
+       9.32
+      ],
+      "size_cm": [
+       5.48,
+       0.79
+      ],
+      "levels": {
+       "lvl1pPr": {
+        "size_pt": 15.0,
+        "bold": false,
+        "color": "#333333",
+        "layout_cm": {
+         "marL": 0.0,
+         "indent": 0.0
+        }
+       }
+      }
+     },
+     {
+      "name": "内容占位符 33",
+      "ph_type": null,
+      "pos_cm": [
+       2.35,
+       11.79
+      ],
+      "size_cm": [
+       5.48,
+       0.79
+      ],
+      "levels": {
+       "lvl1pPr": {
+        "size_pt": 15.0,
+        "bold": false,
+        "color": "#333333",
+        "layout_cm": {
+         "marL": 0.0,
+         "indent": 0.0
+        }
+       }
+      }
+     },
+     {
+      "name": "内容占位符 33",
+      "ph_type": null,
+      "pos_cm": [
+       2.35,
+       10.55
+      ],
+      "size_cm": [
+       5.48,
+       0.79
+      ],
+      "levels": {
+       "lvl1pPr": {
+        "size_pt": 15.0,
+        "bold": false,
+        "color": "#333333",
+        "layout_cm": {
+         "marL": 0.0,
+         "indent": 0.0
+        }
+       }
+      }
+     }
+    ],
+    "pictures": [
+     {
+      "name": "图片 4",
+      "pos_cm": [
+       0.0,
+       0.0
+      ],
+      "size_cm": [
+       25.4,
+       14.29
+      ]
+     },
+     {
+      "name": "图片 7",
+      "pos_cm": [
+       1.4,
+       9.15
+      ],
+      "size_cm": [
+       0.95,
+       0.95
+      ]
+     },
+     {
+      "name": "图片 11",
+      "pos_cm": [
+       1.63,
+       11.86
+      ],
+      "size_cm": [
+       0.5,
+       0.5
+      ]
+     },
+     {
+      "name": "图片 13",
+      "pos_cm": [
+       1.57,
+       10.54
+      ],
+      "size_cm": [
+       0.6,
+       0.6
+      ]
+     },
+     {
+      "name": "图片 24",
+      "pos_cm": [
+       15.41,
+       4.35
+      ],
+      "size_cm": [
+       10.48,
+       10.56
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "2_目录页": {
+  "file": "slideLayout10.xml",
+  "slides": [
+   {
+    "shapes": [
+     {
+      "name": "内容占位符 36",
+      "ph_type": null,
+      "pos_cm": [
+       13.84,
+       2.63
+      ],
+      "size_cm": [
+       6.63,
+       0.87
+      ],
+      "levels": {
+       "lvl1pPr": {
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": false,
+        "latin_font": "微软雅黑",
+        "ea_font": "微软雅黑",
+        "layout_cm": {
+         "marL": 0.0,
+         "indent": 0.0
+        }
+       }
+      }
+     },
+     {
+      "name": "内容占位符 36",
+      "ph_type": null,
+      "pos_cm": [
+       13.84,
+       4.56
+      ],
+      "size_cm": [
+       6.63,
+       0.87
+      ],
+      "levels": {
+       "lvl1pPr": {
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": false,
+        "latin_font": "微软雅黑",
+        "ea_font": "微软雅黑",
+        "layout_cm": {
+         "marL": 0.0,
+         "indent": 0.0
+        }
+       }
+      }
+     },
+     {
+      "name": "内容占位符 36",
+      "ph_type": null,
+      "pos_cm": [
+       13.84,
+       6.47
+      ],
+      "size_cm": [
+       6.63,
+       0.87
+      ],
+      "levels": {
+       "lvl1pPr": {
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": false,
+        "latin_font": "微软雅黑",
+        "ea_font": "微软雅黑",
+        "layout_cm": {
+         "marL": 0.0,
+         "indent": 0.0
+        }
+       }
+      }
+     },
+     {
+      "name": "内容占位符 36",
+      "ph_type": null,
+      "pos_cm": [
+       13.84,
+       8.41
+      ],
+      "size_cm": [
+       6.63,
+       0.87
+      ],
+      "levels": {
+       "lvl1pPr": {
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": false,
+        "latin_font": "微软雅黑",
+        "ea_font": "微软雅黑",
+        "layout_cm": {
+         "marL": 0.0,
+         "indent": 0.0
+        }
+       }
+      }
+     }
+    ],
+    "pictures": [
+     {
+      "name": "图片 9",
+      "pos_cm": [
+       0.0,
+       0.0
+      ],
+      "size_cm": [
+       25.4,
+       14.29
+      ]
+     }
+    ]
+   },
+   {
+    "shapes": [
+     {
+      "name": "数据 5",
+      "ph_type": null,
+      "pos_cm": [
+       13.57,
+       4.36
+      ],
+      "size_cm": [
+       8.04,
+       1.27
+      ],
+      "anchor": "ctr"
+     },
+     {
+      "name": "数据 5",
+      "ph_type": null,
+      "pos_cm": [
+       13.57,
+       2.43
+      ],
+      "size_cm": [
+       8.04,
+       1.27
+      ],
+      "anchor": "ctr"
+     },
+     {
+      "name": "数据 5",
+      "ph_type": null,
+      "pos_cm": [
+       13.57,
+       6.27
+      ],
+      "size_cm": [
+       8.04,
+       1.27
+      ],
+      "anchor": "ctr"
+     },
+     {
+      "name": "数据 5",
+      "ph_type": null,
+      "pos_cm": [
+       13.57,
+       8.21
+      ],
+      "size_cm": [
+       8.04,
+       1.27
+      ],
+      "anchor": "ctr"
+     },
+     {
+      "name": "数据 2",
+      "ph_type": null,
+      "pos_cm": [
+       13.27,
+       2.66
+      ],
+      "size_cm": [
+       0.31,
+       0.79
+      ],
+      "anchor": "ctr"
+     },
+     {
+      "name": "内容占位符 36",
+      "ph_type": null,
+      "pos_cm": [
+       13.84,
+       2.63
+      ],
+      "size_cm": [
+       6.63,
+       0.87
+      ],
+      "levels": {
+       "lvl1pPr": {
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": false,
+        "latin_font": "微软雅黑",
+        "ea_font": "微软雅黑",
+        "layout_cm": {
+         "marL": 0.0,
+         "indent": 0.0
+        }
+       }
+      }
+     },
+     {
+      "name": "数据 2",
+      "ph_type": null,
+      "pos_cm": [
+       13.27,
+       4.59
+      ],
+      "size_cm": [
+       0.31,
+       0.79
+      ],
+      "anchor": "ctr"
+     },
+     {
+      "name": "内容占位符 36",
+      "ph_type": null,
+      "pos_cm": [
+       13.84,
+       4.56
+      ],
+      "size_cm": [
+       6.63,
+       0.87
+      ],
+      "levels": {
+       "lvl1pPr": {
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": false,
+        "latin_font": "微软雅黑",
+        "ea_font": "微软雅黑",
+        "layout_cm": {
+         "marL": 0.0,
+         "indent": 0.0
+        }
+       }
+      }
+     },
+     {
+      "name": "数据 2",
+      "ph_type": null,
+      "pos_cm": [
+       13.27,
+       6.5
+      ],
+      "size_cm": [
+       0.31,
+       0.79
+      ],
+      "anchor": "ctr"
+     },
+     {
+      "name": "内容占位符 36",
+      "ph_type": null,
+      "pos_cm": [
+       13.84,
+       6.47
+      ],
+      "size_cm": [
+       6.63,
+       0.87
+      ],
+      "levels": {
+       "lvl1pPr": {
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": false,
+        "latin_font": "微软雅黑",
+        "ea_font": "微软雅黑",
+        "layout_cm": {
+         "marL": 0.0,
+         "indent": 0.0
+        }
+       }
+      }
+     },
+     {
+      "name": "数据 2",
+      "ph_type": null,
+      "pos_cm": [
+       13.27,
+       8.44
+      ],
+      "size_cm": [
+       0.31,
+       0.79
+      ],
+      "anchor": "ctr"
+     },
+     {
+      "name": "内容占位符 36",
+      "ph_type": null,
+      "pos_cm": [
+       13.84,
+       8.41
+      ],
+      "size_cm": [
+       6.63,
+       0.87
+      ],
+      "levels": {
+       "lvl1pPr": {
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": false,
+        "latin_font": "微软雅黑",
+        "ea_font": "微软雅黑",
+        "layout_cm": {
+         "marL": 0.0,
+         "indent": 0.0
+        }
+       }
+      }
+     }
+    ],
+    "pictures": [
+     {
+      "name": "图片 9",
+      "pos_cm": [
+       0.0,
+       0.0
+      ],
+      "size_cm": [
+       25.4,
+       14.29
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "3_节标题": {
+  "file": "slideLayout11.xml",
+  "slides": [
+   {
+    "shapes": [
+     {
+      "name": "Part",
+      "ph_type": null,
+      "pos_cm": [
+       0.51,
+       6.22
+      ],
+      "size_cm": [
+       2.95,
+       1.49
+      ],
+      "anchor": "ctr",
+      "levels": {
+       "lvl1pPr": {
+        "size_pt": 80.0,
+        "color": "#FFFFFF",
+        "latin_font": "Helvetica",
+        "ea_font": "Helvetica"
+       }
+      },
+      "run_spec": {
+       "size_pt": 30.0,
+       "bold": true,
+       "italic": false,
+       "letter_spacing": "0",
+       "color": "#FFFFFF",
+       "latin_font": "微软雅黑",
+       "ea_font": "微软雅黑"
+      }
+     },
+     {
+      "name": "标题 1",
+      "ph_type": "title",
+      "pos_cm": [
+       5.89,
+       5.83
+      ],
+      "size_cm": [
+       13.62,
+       2.05
+      ],
+      "anchor": "ctr",
+      "levels": {
+       "lvl1pPr": {
+        "size_pt": 27.0,
+        "bold": true,
+        "layout_cm": {
+         "align": "l"
+        }
+       }
+      }
+     },
+     {
+      "name": "文本占位符 7",
+      "ph_type": "body",
+      "pos_cm": [
+       2.91,
+       5.16
+      ],
+      "size_cm": [
+       2.91,
+       3.38
+      ],
+      "levels": {
+       "lvl1pPr": {
+        "size_pt": 103.5,
+        "bold": true,
+        "italic": false,
+        "latin_font": "微软雅黑",
+        "ea_font": "微软雅黑",
+        "layout_cm": {
+         "marL": 0.0,
+         "indent": 0.0
+        }
+       }
+      }
+     }
+    ],
+    "pictures": [
+     {
+      "name": "图片 7",
+      "pos_cm": [
+       0.0,
+       0.0
+      ],
+      "size_cm": [
+       25.4,
+       14.29
+      ]
+     }
+    ]
+   },
+   {
+    "shapes": [
+     {
+      "name": "Part",
+      "ph_type": null,
+      "pos_cm": [
+       0.51,
+       6.22
+      ],
+      "size_cm": [
+       2.95,
+       1.49
+      ],
+      "anchor": "ctr",
+      "levels": {
+       "lvl1pPr": {
+        "size_pt": 80.0,
+        "color": "#FFFFFF",
+        "latin_font": "Helvetica",
+        "ea_font": "Helvetica"
+       }
+      },
+      "run_spec": {
+       "size_pt": 30.0,
+       "bold": true,
+       "italic": false,
+       "latin_font": "微软雅黑",
+       "ea_font": "微软雅黑"
+      }
+     },
+     {
+      "name": "标题 1",
+      "ph_type": "title",
+      "pos_cm": [
+       5.89,
+       5.83
+      ],
+      "size_cm": [
+       13.62,
+       2.05
+      ],
+      "anchor": "ctr",
+      "levels": {
+       "lvl1pPr": {
+        "size_pt": 27.0,
+        "bold": true,
+        "layout_cm": {
+         "align": "l"
+        }
+       }
+      }
+     },
+     {
+      "name": "文本占位符 7",
+      "ph_type": "body",
+      "pos_cm": [
+       2.91,
+       5.16
+      ],
+      "size_cm": [
+       2.91,
+       3.38
+      ],
+      "levels": {
+       "lvl1pPr": {
+        "size_pt": 103.5,
+        "bold": true,
+        "italic": false,
+        "latin_font": "微软雅黑",
+        "ea_font": "微软雅黑",
+        "layout_cm": {
+         "marL": 0.0,
+         "indent": 0.0
+        }
+       }
+      }
+     }
+    ],
+    "pictures": [
+     {
+      "name": "图片 7",
+      "pos_cm": [
+       0.0,
+       0.0
+      ],
+      "size_cm": [
+       25.4,
+       14.29
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "4_内容页": {
+  "file": "slideLayout12.xml",
+  "slides": [
+   {
+    "shapes": [
+     {
+      "name": "内容占位符 2",
+      "ph_type": null,
+      "pos_cm": [
+       0.74,
+       1.98
+      ],
+      "size_cm": [
+       23.67,
+       11.22
+      ],
+      "levels": {
+       "lvl1pPr": {
+        "size_pt": 15.0
+       },
+       "lvl2pPr": {
+        "size_pt": 13.5
+       },
+       "lvl3pPr": {
+        "size_pt": 12.0
+       },
+       "lvl4pPr": {
+        "size_pt": 10.5
+       },
+       "lvl5pPr": {
+        "size_pt": 10.5
+       }
+      }
+     },
+     {
+      "name": "标题 1",
+      "ph_type": "title",
+      "pos_cm": [
+       4.32,
+       0.42
+      ],
+      "size_cm": [
+       20.67,
+       0.98
+      ],
+      "levels": {
+       "lvl1pPr": {
+        "size_pt": 19.5,
+        "bold": true,
+        "italic": false,
+        "color": "#FFC000",
+        "latin_font": "微软雅黑",
+        "ea_font": "微软雅黑",
+        "layout_cm": {
+         "align": "r"
+        }
+       }
+      }
+     }
+    ],
+    "pictures": [
+     {
+      "name": "图片 18",
+      "pos_cm": [
+       0.0,
+       0.0
+      ],
+      "size_cm": [
+       25.4,
+       14.29
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "6_结束页": {
+  "file": "slideLayout14.xml",
+  "slides": [
+   {
+    "shapes": [
+     {
+      "name": "文本框 5",
+      "ph_type": null,
+      "pos_cm": [
+       10.0,
+       5.45
+      ],
+      "size_cm": [
+       9.89,
+       3.51
+      ],
+      "run_spec": {
+       "size_pt": 24.0,
+       "bold": true,
+       "italic": false,
+       "letter_spacing": "0",
+       "color": "#3F84FF",
+       "latin_font": "Arial",
+       "ea_font": "微软雅黑"
+      }
+     }
+    ],
+    "pictures": [
+     {
+      "name": "图片 18",
+      "pos_cm": [
+       0.0,
+       0.0
+      ],
+      "size_cm": [
+       25.4,
+       14.29
+      ]
+     },
+     {
+      "name": "图片 4",
+      "pos_cm": [
+       6.46,
+       4.1
+      ],
+      "size_cm": [
+       3.53,
+       4.71
+      ]
+     }
+    ]
+   },
+   {
+    "shapes": [
+     {
+      "name": "文本框 5",
+      "ph_type": null,
+      "pos_cm": [
+       10.0,
+       5.45
+      ],
+      "size_cm": [
+       9.89,
+       3.51
+      ],
+      "run_spec": {
+       "size_pt": 24.0,
+       "bold": true,
+       "color": "#3F84FF",
+       "latin_font": "Arial",
+       "ea_font": "微软雅黑"
+      }
+     }
+    ],
+    "pictures": [
+     {
+      "name": "图片 18",
+      "pos_cm": [
+       0.0,
+       0.0
+      ],
+      "size_cm": [
+       25.4,
+       14.29
+      ]
+     },
+     {
+      "name": "图片 4",
+      "pos_cm": [
+       6.46,
+       4.1
+      ],
+      "size_cm": [
+       3.53,
+       4.71
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "标题和内容": {
+  "file": "slideLayout16.xml",
+  "slides": [
+   {
+    "shapes": [
+     {
+      "name": "内容占位符 2",
+      "ph_type": null,
+      "pos_cm": [
+       0.74,
+       1.98
+      ],
+      "size_cm": [
+       23.67,
+       11.22
+      ],
+      "levels": {
+       "lvl1pPr": {
+        "size_pt": 15.0
+       },
+       "lvl2pPr": {
+        "size_pt": 13.5
+       },
+       "lvl3pPr": {
+        "size_pt": 12.0
+       },
+       "lvl4pPr": {
+        "size_pt": 10.5
+       },
+       "lvl5pPr": {
+        "size_pt": 10.5
+       }
+      }
+     },
+     {
+      "name": "标题 1",
+      "ph_type": "title",
+      "pos_cm": [
+       4.32,
+       0.42
+      ],
+      "size_cm": [
+       20.67,
+       0.98
+      ],
+      "levels": {
+       "lvl1pPr": {
+        "size_pt": 19.5,
+        "bold": true,
+        "italic": false,
+        "color": "#FFC000",
+        "latin_font": "微软雅黑",
+        "ea_font": "微软雅黑",
+        "layout_cm": {
+         "align": "r"
+        }
+       }
+      }
+     }
+    ],
+    "pictures": [
+     {
+      "name": "图片 1",
+      "pos_cm": [
+       0.0,
+       0.0
+      ],
+      "size_cm": [
+       25.4,
+       14.29
+      ]
+     }
+    ]
+   },
+   {
+    "shapes": [
+     {
+      "name": "内容占位符 2",
+      "ph_type": null,
+      "pos_cm": [
+       0.74,
+       1.98
+      ],
+      "size_cm": [
+       23.67,
+       11.22
+      ],
+      "levels": {
+       "lvl1pPr": {
+        "size_pt": 15.0
+       },
+       "lvl2pPr": {
+        "size_pt": 13.5
+       },
+       "lvl3pPr": {
+        "size_pt": 12.0
+       },
+       "lvl4pPr": {
+        "size_pt": 10.5
+       },
+       "lvl5pPr": {
+        "size_pt": 10.5
+       }
+      }
+     },
+     {
+      "name": "标题 1",
+      "ph_type": "title",
+      "pos_cm": [
+       4.32,
+       0.42
+      ],
+      "size_cm": [
+       20.67,
+       0.98
+      ],
+      "levels": {
+       "lvl1pPr": {
+        "size_pt": 19.5,
+        "bold": true,
+        "italic": false,
+        "color": "#FFC000",
+        "latin_font": "微软雅黑",
+        "ea_font": "微软雅黑",
+        "layout_cm": {
+         "align": "r"
+        }
+       }
+      }
+     }
+    ],
+    "pictures": [
+     {
+      "name": "图片 1",
+      "pos_cm": [
+       0.0,
+       0.0
+      ],
+      "size_cm": [
+       25.4,
+       14.29
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "2_首页": {
+  "file": "slideLayout2.xml",
+  "slides": [
+   {
+    "shapes": [
+     {
+      "name": "标题 1",
+      "ph_type": "ctrTitle",
+      "pos_cm": [
+       1.22,
+       3.01
+      ],
+      "size_cm": [
+       14.58,
+       1.38
+      ],
+      "anchor": "b",
+      "levels": {
+       "lvl1pPr": {
+        "size_pt": 27.0,
+        "bold": true,
+        "italic": false,
+        "color": "#333333",
+        "latin_font": "微软雅黑",
+        "ea_font": "微软雅黑",
+        "layout_cm": {
+         "align": "l"
+        }
+       }
+      }
+     },
+     {
+      "name": "副标题 2",
+      "ph_type": "subTitle",
+      "pos_cm": [
+       1.22,
+       4.76
+      ],
+      "size_cm": [
+       13.78,
+       1.21
+      ],
+      "levels": {
+       "lvl1pPr": {
+        "size_pt": 18.0,
+        "layout_cm": {
+         "marL": 0.0,
+         "indent": 0.0,
+         "align": "l"
+        }
+       },
+       "lvl2pPr": {
+        "size_pt": 15.0,
+        "layout_cm": {
+         "marL": 0.9525,
+         "indent": 0.0,
+         "align": "ctr"
+        }
+       },
+       "lvl3pPr": {
+        "size_pt": 13.5,
+        "layout_cm": {
+         "marL": 1.905,
+         "indent": 0.0,
+         "align": "ctr"
+        }
+       },
+       "lvl4pPr": {
+        "size_pt": 12.0,
+        "layout_cm": {
+         "marL": 2.8575,
+         "indent": 0.0,
+         "align": "ctr"
+        }
+       },
+       "lvl5pPr": {
+        "size_pt": 12.0,
+        "layout_cm": {
+         "marL": 3.81,
+         "indent": 0.0,
+         "align": "ctr"
+        }
+       },
+       "lvl6pPr": {
+        "size_pt": 12.0,
+        "layout_cm": {
+         "marL": 4.7625,
+         "indent": 0.0,
+         "align": "ctr"
+        }
+       },
+       "lvl7pPr": {
+        "size_pt": 12.0,
+        "layout_cm": {
+         "marL": 5.715,
+         "indent": 0.0,
+         "align": "ctr"
+        }
+       },
+       "lvl8pPr": {
+        "size_pt": 12.0,
+        "layout_cm": {
+         "marL": 6.6675,
+         "indent": 0.0,
+         "align": "ctr"
+        }
+       },
+       "lvl9pPr": {
+        "size_pt": 12.0,
+        "layout_cm": {
+         "marL": 7.62,
+         "indent": 0.0,
+         "align": "ctr"
+        }
+       }
+      }
+     },
+     {
+      "name": "内容占位符 33",
+      "ph_type": null,
+      "pos_cm": [
+       2.35,
+       9.32
+      ],
+      "size_cm": [
+       5.48,
+       0.79
+      ],
+      "levels": {
+       "lvl1pPr": {
+        "size_pt": 15.0,
+        "bold": false,
+        "color": "#333333",
+        "layout_cm": {
+         "marL": 0.0,
+         "indent": 0.0
+        }
+       }
+      }
+     },
+     {
+      "name": "内容占位符 33",
+      "ph_type": null,
+      "pos_cm": [
+       2.35,
+       11.79
+      ],
+      "size_cm": [
+       5.48,
+       0.79
+      ],
+      "levels": {
+       "lvl1pPr": {
+        "size_pt": 15.0,
+        "bold": false,
+        "color": "#333333",
+        "layout_cm": {
+         "marL": 0.0,
+         "indent": 0.0
+        }
+       }
+      }
+     },
+     {
+      "name": "内容占位符 33",
+      "ph_type": null,
+      "pos_cm": [
+       2.35,
+       10.55
+      ],
+      "size_cm": [
+       5.48,
+       0.79
+      ],
+      "levels": {
+       "lvl1pPr": {
+        "size_pt": 15.0,
+        "bold": false,
+        "color": "#333333",
+        "layout_cm": {
+         "marL": 0.0,
+         "indent": 0.0
+        }
+       }
+      }
+     },
+     {
+      "name": "文本框 12",
+      "ph_type": null,
+      "pos_cm": [
+       14.64,
+       5.2
+      ],
+      "size_cm": [
+       9.99,
+       1.99
+      ],
+      "run_spec": {
+       "size_pt": 40.5,
+       "bold": true,
+       "italic": false,
+       "latin_font": "Arial Black",
+       "ea_font": "Microsoft YaHei"
+      }
+     },
+     {
+      "name": "文本框 10",
+      "ph_type": null,
+      "pos_cm": [
+       15.72,
+       7.59
+      ],
+      "size_cm": [
+       9.81,
+       1.99
+      ],
+      "run_spec": {
+       "size_pt": 40.5,
+       "bold": true,
+       "italic": false,
+       "latin_font": "Arial Black",
+       "ea_font": "Microsoft YaHei"
+      }
+     }
+    ],
+    "pictures": [
+     {
+      "name": "图片 4",
+      "pos_cm": [
+       0.0,
+       0.0
+      ],
+      "size_cm": [
+       25.4,
+       14.29
+      ]
+     },
+     {
+      "name": "图片 7",
+      "pos_cm": [
+       1.4,
+       9.15
+      ],
+      "size_cm": [
+       0.95,
+       0.95
+      ]
+     },
+     {
+      "name": "图片 11",
+      "pos_cm": [
+       1.63,
+       11.86
+      ],
+      "size_cm": [
+       0.5,
+       0.5
+      ]
+     },
+     {
+      "name": "图片 13",
+      "pos_cm": [
+       1.57,
+       10.54
+      ],
+      "size_cm": [
+       0.6,
+       0.6
+      ]
+     },
+     {
+      "name": "图片 8",
+      "pos_cm": [
+       15.41,
+       4.35
+      ],
+      "size_cm": [
+       10.48,
+       10.56
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}
