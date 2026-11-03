@@ -1,0 +1,3257 @@
+{
+ "canvas": {
+  "width_cm": 25.4,
+  "height_cm": 14.29,
+  "width_pt": 720.0,
+  "height_pt": 405.0,
+  "ratio": 1.7778,
+  "slide_count": 10
+ },
+ "theme": {
+  "major_latin": "Arial Black",
+  "minor_latin": "微软雅黑",
+  "major_ea": "微软雅黑",
+  "minor_ea": "微软雅黑",
+  "color_scheme": {
+   "dk1": "sys:000000",
+   "lt1": "sys:FFFFFF",
+   "dk2": "#0E2841",
+   "lt2": "#E8E8E8",
+   "accent1": "#156082",
+   "accent2": "#E97132",
+   "accent3": "#196B24",
+   "accent4": "#0F9ED5",
+   "accent5": "#A02B93",
+   "accent6": "#4EA72E",
+   "hlink": "#467886",
+   "folHlink": "#96607D"
+  }
+ },
+ "masters": [
+  {
+   "name": "",
+   "layouts": [
+    "1_首页",
+    "2_首页",
+    "2_目录页",
+    "3_节标题",
+    "6_结束页",
+    "仅标题",
+    "标题和内容"
+   ],
+   "shapes": [
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "标题占位符 1",
+     "pos_cm": [
+      1.75,
+      0.76
+     ],
+     "size_cm": [
+      21.91,
+      2.76
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "单击此处编辑母版标题样式",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "文本占位符 2",
+     "pos_cm": [
+      1.75,
+      3.8
+     ],
+     "size_cm": [
+      21.91,
+      9.07
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "单击此处编辑母版文本样式",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 1,
+       "runs": [
+        {
+         "text": "二级",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 2,
+       "runs": [
+        {
+         "text": "三级",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 3,
+       "runs": [
+        {
+         "text": "四级",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 4,
+       "runs": [
+        {
+         "text": "五级",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "日期占位符 3",
+     "pos_cm": [
+      1.75,
+      13.24
+     ],
+     "size_cm": [
+      5.71,
+      0.76
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "页脚占位符 4",
+     "pos_cm": [
+      8.41,
+      13.24
+     ],
+     "size_cm": [
+      8.57,
+      0.76
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "灯片编号占位符 5",
+     "pos_cm": [
+      17.94,
+      13.24
+     ],
+     "size_cm": [
+      5.71,
+      0.76
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "",
+   "layouts": [
+    "1_首页",
+    "2_首页",
+    "2_目录页",
+    "3_节标题",
+    "4_内容页",
+    "5_空白页",
+    "6_结束页",
+    "空白页",
+    "标题和内容"
+   ],
+   "shapes": [
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "标题占位符 1",
+     "pos_cm": [
+      1.75,
+      0.76
+     ],
+     "size_cm": [
+      21.91,
+      2.76
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "单击此处编辑母版标题样式",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "文本占位符 2",
+     "pos_cm": [
+      1.75,
+      3.8
+     ],
+     "size_cm": [
+      21.91,
+      9.07
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "单击此处编辑母版文本样式",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 1,
+       "runs": [
+        {
+         "text": "二级",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 2,
+       "runs": [
+        {
+         "text": "三级",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 3,
+       "runs": [
+        {
+         "text": "四级",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 4,
+       "runs": [
+        {
+         "text": "五级",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "日期占位符 3",
+     "pos_cm": [
+      1.75,
+      13.24
+     ],
+     "size_cm": [
+      5.71,
+      0.76
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "页脚占位符 4",
+     "pos_cm": [
+      8.41,
+      13.24
+     ],
+     "size_cm": [
+      8.57,
+      0.76
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "灯片编号占位符 5",
+     "pos_cm": [
+      17.94,
+      13.24
+     ],
+     "size_cm": [
+      5.71,
+      0.76
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "",
+   "layouts": [
+    "仅标题",
+    "仅标题",
+    "仅标题",
+    "仅标题"
+   ],
+   "shapes": [
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "标题占位符 1",
+     "pos_cm": [
+      1.75,
+      0.76
+     ],
+     "size_cm": [
+      21.91,
+      2.76
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "单击此处编辑母版标题样式",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "文本占位符 2",
+     "pos_cm": [
+      1.75,
+      3.8
+     ],
+     "size_cm": [
+      21.91,
+      9.07
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "单击此处编辑母版文本样式",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 1,
+       "runs": [
+        {
+         "text": "二级",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 2,
+       "runs": [
+        {
+         "text": "三级",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 3,
+       "runs": [
+        {
+         "text": "四级",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 4,
+       "runs": [
+        {
+         "text": "五级",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "日期占位符 3",
+     "pos_cm": [
+      1.75,
+      13.24
+     ],
+     "size_cm": [
+      5.71,
+      0.76
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "页脚占位符 4",
+     "pos_cm": [
+      8.41,
+      13.24
+     ],
+     "size_cm": [
+      8.57,
+      0.76
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "灯片编号占位符 5",
+     "pos_cm": [
+      17.94,
+      13.24
+     ],
+     "size_cm": [
+      5.71,
+      0.76
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "",
+   "layouts": [
+    "仅标题"
+   ],
+   "shapes": [
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "标题占位符 1",
+     "pos_cm": [
+      1.75,
+      0.76
+     ],
+     "size_cm": [
+      21.91,
+      2.76
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "单击此处编辑母版标题样式",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "文本占位符 2",
+     "pos_cm": [
+      1.75,
+      3.8
+     ],
+     "size_cm": [
+      21.91,
+      9.07
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "单击此处编辑母版文本样式",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 1,
+       "runs": [
+        {
+         "text": "二级",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 2,
+       "runs": [
+        {
+         "text": "三级",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 3,
+       "runs": [
+        {
+         "text": "四级",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 4,
+       "runs": [
+        {
+         "text": "五级",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "日期占位符 3",
+     "pos_cm": [
+      1.75,
+      13.24
+     ],
+     "size_cm": [
+      5.71,
+      0.76
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "页脚占位符 4",
+     "pos_cm": [
+      8.41,
+      13.24
+     ],
+     "size_cm": [
+      8.57,
+      0.76
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "灯片编号占位符 5",
+     "pos_cm": [
+      17.94,
+      13.24
+     ],
+     "size_cm": [
+      5.71,
+      0.76
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "",
+   "layouts": [
+    "仅标题",
+    "仅标题",
+    "仅标题"
+   ],
+   "shapes": [
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "标题占位符 1",
+     "pos_cm": [
+      1.75,
+      0.76
+     ],
+     "size_cm": [
+      21.91,
+      2.76
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "单击此处编辑母版标题样式",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "文本占位符 2",
+     "pos_cm": [
+      1.75,
+      3.8
+     ],
+     "size_cm": [
+      21.91,
+      9.07
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "单击此处编辑母版文本样式",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 1,
+       "runs": [
+        {
+         "text": "二级",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 2,
+       "runs": [
+        {
+         "text": "三级",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 3,
+       "runs": [
+        {
+         "text": "四级",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 4,
+       "runs": [
+        {
+         "text": "五级",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "日期占位符 3",
+     "pos_cm": [
+      1.75,
+      13.24
+     ],
+     "size_cm": [
+      5.71,
+      0.76
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "页脚占位符 4",
+     "pos_cm": [
+      8.41,
+      13.24
+     ],
+     "size_cm": [
+      8.57,
+      0.76
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "灯片编号占位符 5",
+     "pos_cm": [
+      17.94,
+      13.24
+     ],
+     "size_cm": [
+      5.71,
+      0.76
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "",
+   "layouts": [
+    "仅标题",
+    "仅标题"
+   ],
+   "shapes": [
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "标题占位符 1",
+     "pos_cm": [
+      1.75,
+      0.76
+     ],
+     "size_cm": [
+      21.91,
+      2.76
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "单击此处编辑母版标题样式",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "文本占位符 2",
+     "pos_cm": [
+      1.75,
+      3.8
+     ],
+     "size_cm": [
+      21.91,
+      9.07
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "单击此处编辑母版文本样式",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 1,
+       "runs": [
+        {
+         "text": "二级",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 2,
+       "runs": [
+        {
+         "text": "三级",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 3,
+       "runs": [
+        {
+         "text": "四级",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 4,
+       "runs": [
+        {
+         "text": "五级",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "日期占位符 3",
+     "pos_cm": [
+      1.75,
+      13.24
+     ],
+     "size_cm": [
+      5.71,
+      0.76
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "页脚占位符 4",
+     "pos_cm": [
+      8.41,
+      13.24
+     ],
+     "size_cm": [
+      8.57,
+      0.76
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "灯片编号占位符 5",
+     "pos_cm": [
+      17.94,
+      13.24
+     ],
+     "size_cm": [
+      5.71,
+      0.76
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "",
+   "layouts": [
+    "仅标题",
+    "仅标题",
+    "仅标题"
+   ],
+   "shapes": [
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "标题占位符 1",
+     "pos_cm": [
+      1.75,
+      0.76
+     ],
+     "size_cm": [
+      21.91,
+      2.76
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "单击此处编辑母版标题样式",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "文本占位符 2",
+     "pos_cm": [
+      1.75,
+      3.8
+     ],
+     "size_cm": [
+      21.91,
+      9.07
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "单击此处编辑母版文本样式",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 1,
+       "runs": [
+        {
+         "text": "二级",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 2,
+       "runs": [
+        {
+         "text": "三级",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 3,
+       "runs": [
+        {
+         "text": "四级",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 4,
+       "runs": [
+        {
+         "text": "五级",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "日期占位符 3",
+     "pos_cm": [
+      1.75,
+      13.24
+     ],
+     "size_cm": [
+      5.71,
+      0.76
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "页脚占位符 4",
+     "pos_cm": [
+      8.41,
+      13.24
+     ],
+     "size_cm": [
+      8.57,
+      0.76
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "灯片编号占位符 5",
+     "pos_cm": [
+      17.94,
+      13.24
+     ],
+     "size_cm": [
+      5.71,
+      0.76
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "",
+   "layouts": [
+    "DEFAULT"
+   ],
+   "shapes": []
+  },
+  {
+   "name": "",
+   "layouts": [
+    "仅标题",
+    "3_节标题"
+   ],
+   "shapes": [
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "标题占位符 1",
+     "pos_cm": [
+      1.75,
+      0.76
+     ],
+     "size_cm": [
+      21.91,
+      2.76
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "单击此处编辑母版标题样式",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "文本占位符 2",
+     "pos_cm": [
+      1.75,
+      3.8
+     ],
+     "size_cm": [
+      21.91,
+      9.07
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "单击此处编辑母版文本样式",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 1,
+       "runs": [
+        {
+         "text": "二级",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 2,
+       "runs": [
+        {
+         "text": "三级",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 3,
+       "runs": [
+        {
+         "text": "四级",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 4,
+       "runs": [
+        {
+         "text": "五级",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "日期占位符 3",
+     "pos_cm": [
+      1.75,
+      13.24
+     ],
+     "size_cm": [
+      5.71,
+      0.76
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "页脚占位符 4",
+     "pos_cm": [
+      8.41,
+      13.24
+     ],
+     "size_cm": [
+      8.57,
+      0.76
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "灯片编号占位符 5",
+     "pos_cm": [
+      17.94,
+      13.24
+     ],
+     "size_cm": [
+      5.71,
+      0.76
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "",
+   "layouts": [
+    "Blank"
+   ],
+   "shapes": [
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "Title Placeholder 1",
+     "pos_cm": [
+      0.95,
+      0.57
+     ],
+     "size_cm": [
+      17.14,
+      2.38
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "Click to edit Master title style",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "Text Placeholder 2",
+     "pos_cm": [
+      0.95,
+      3.33
+     ],
+     "size_cm": [
+      17.14,
+      9.43
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "Click to edit Master text styles",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 1,
+       "runs": [
+        {
+         "text": "Second level",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 2,
+       "runs": [
+        {
+         "text": "Third level",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 3,
+       "runs": [
+        {
+         "text": "Fourth level",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      },
+      {
+       "align": null,
+       "level": 4,
+       "runs": [
+        {
+         "text": "Fifth level",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "Date Placeholder 3",
+     "pos_cm": [
+      0.95,
+      13.24
+     ],
+     "size_cm": [
+      4.45,
+      0.76
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "Footer Placeholder 4",
+     "pos_cm": [
+      6.51,
+      13.24
+     ],
+     "size_cm": [
+      6.03,
+      0.76
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "Slide Number Placeholder 5",
+     "pos_cm": [
+      13.65,
+      13.24
+     ],
+     "size_cm": [
+      4.45,
+      0.76
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "slides": [
+  {
+   "index": 1,
+   "layout": "2_首页",
+   "shapes": [
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "标题 1",
+     "pos_cm": [
+      1.22,
+      3.01
+     ],
+     "size_cm": [
+      14.58,
+      1.38
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "工作月报",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "内容占位符 3",
+     "pos_cm": [
+      2.35,
+      9.32
+     ],
+     "size_cm": [
+      5.48,
+      0.79
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "数智技术研发处",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "内容占位符 4",
+     "pos_cm": [
+      2.35,
+      11.79
+     ],
+     "size_cm": [
+      5.48,
+      0.79
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "2026",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        },
+        {
+         "text": "年",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        },
+        {
+         "text": "09",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        },
+        {
+         "text": "月",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        },
+        {
+         "text": "03",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        },
+        {
+         "text": "日",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "内容占位符 5",
+     "pos_cm": [
+      2.35,
+      10.55
+     ],
+     "size_cm": [
+      5.48,
+      0.79
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "吴永生",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 2,
+   "layout": "2_目录页",
+   "shapes": [
+    {
+     "type": "GROUP (6)",
+     "name": "组合 5",
+     "pos_cm": [
+      13.27,
+      2.43
+     ],
+     "size_cm": [
+      9.54,
+      1.27
+     ],
+     "children": [
+      {
+       "type": "FREEFORM (5)",
+       "name": "数据 5",
+       "pos_cm": [
+        18.1,
+        3.24
+       ],
+       "size_cm": [
+        12.31,
+        1.69
+       ]
+      },
+      {
+       "type": "FREEFORM (5)",
+       "name": "数据 2",
+       "pos_cm": [
+        17.69,
+        3.55
+       ],
+       "size_cm": [
+        0.41,
+        1.05
+       ]
+      }
+     ]
+    },
+    {
+     "type": "GROUP (6)",
+     "name": "组合 8",
+     "pos_cm": [
+      13.27,
+      3.92
+     ],
+     "size_cm": [
+      9.54,
+      1.27
+     ],
+     "children": [
+      {
+       "type": "FREEFORM (5)",
+       "name": "数据 5",
+       "pos_cm": [
+        18.1,
+        5.82
+       ],
+       "size_cm": [
+        12.31,
+        1.69
+       ]
+      },
+      {
+       "type": "FREEFORM (5)",
+       "name": "数据 2",
+       "pos_cm": [
+        17.69,
+        6.12
+       ],
+       "size_cm": [
+        0.41,
+        1.05
+       ]
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "内容占位符 1",
+     "pos_cm": [
+      13.84,
+      2.63
+     ],
+     "size_cm": [
+      8.08,
+      0.87
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "01.",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        },
+        {
+         "text": " OGSM",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": "微软雅黑"
+        },
+        {
+         "text": "指标达成状态",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": "微软雅黑"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "内容占位符 2",
+     "pos_cm": [
+      13.84,
+      4.12
+     ],
+     "size_cm": [
+      9.52,
+      0.87
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "02. 指标达成相关重点工作",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "GROUP (6)",
+     "name": "组合 8",
+     "pos_cm": [
+      13.27,
+      5.45
+     ],
+     "size_cm": [
+      9.54,
+      1.27
+     ],
+     "children": [
+      {
+       "type": "FREEFORM (5)",
+       "name": "数据 5",
+       "pos_cm": [
+        18.1,
+        5.82
+       ],
+       "size_cm": [
+        12.31,
+        1.69
+       ]
+      },
+      {
+       "type": "FREEFORM (5)",
+       "name": "数据 2",
+       "pos_cm": [
+        17.69,
+        6.12
+       ],
+       "size_cm": [
+        0.41,
+        1.05
+       ]
+      }
+     ]
+    },
+    {
+     "type": "TEXT_BOX (17)",
+     "name": "内容占位符 2",
+     "pos_cm": [
+      13.84,
+      5.65
+     ],
+     "size_cm": [
+      6.63,
+      0.87
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "03.",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        },
+        {
+         "text": " 其他关注事项",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 3,
+   "layout": "3_节标题",
+   "shapes": [
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "标题 1",
+     "pos_cm": [
+      5.89,
+      5.83
+     ],
+     "size_cm": [
+      13.62,
+      2.05
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "OGSM",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        },
+        {
+         "text": "指标达成状态",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "文本占位符 2",
+     "pos_cm": [
+      2.98,
+      5.16
+     ],
+     "size_cm": [
+      2.91,
+      3.38
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "1",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 4,
+   "layout": "标题和内容",
+   "shapes": [
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "标题 1",
+     "pos_cm": [
+      4.32,
+      0.42
+     ],
+     "size_cm": [
+      20.67,
+      0.98
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "数智技术研发处 ",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        },
+        {
+         "text": "–",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        },
+        {
+         "text": " ",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        },
+        {
+         "text": "2026",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        },
+        {
+         "text": "年",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        },
+        {
+         "text": "8",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        },
+        {
+         "text": "月",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        },
+        {
+         "text": "OGSM",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        },
+        {
+         "text": "指标 ",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "TEXT_BOX (17)",
+     "name": "文本框 62",
+     "pos_cm": [
+      1.96,
+      10.58
+     ],
+     "size_cm": [
+      3.98,
+      0.77
+     ],
+     "paragraphs": [
+      {
+       "align": "RIGHT (3)",
+       "level": 0,
+       "runs": [
+        {
+         "text": "AI",
+         "size_pt": 12.0,
+         "bold": true,
+         "italic": null,
+         "font": "Microsoft YaHei",
+         "color": "#1A1A1A"
+        },
+        {
+         "text": "服务调用增长率",
+         "size_pt": 12.0,
+         "bold": true,
+         "italic": null,
+         "font": "Microsoft YaHei",
+         "color": "#1A1A1A"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "TEXT_BOX (17)",
+     "name": "文本框 64",
+     "pos_cm": [
+      2.25,
+      11.76
+     ],
+     "size_cm": [
+      3.76,
+      0.77
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "IT",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": "Microsoft YaHei"
+        },
+        {
+         "text": "总费用率",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": "Microsoft YaHei"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "AUTO_SHAPE (1)",
+     "name": "椭圆 74",
+     "pos_cm": [
+      0.96,
+      10.49
+     ],
+     "size_cm": [
+      0.8,
+      0.8
+     ],
+     "paragraphs": [
+      {
+       "align": "CENTER (2)",
+       "level": 0,
+       "runs": [
+        {
+         "text": "季",
+         "size_pt": 12.0,
+         "bold": true,
+         "italic": null,
+         "font": "Microsoft YaHei"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "AUTO_SHAPE (1)",
+     "name": "椭圆 76",
+     "pos_cm": [
+      0.96,
+      11.71
+     ],
+     "size_cm": [
+      0.8,
+      0.8
+     ],
+     "paragraphs": [
+      {
+       "align": "CENTER (2)",
+       "level": 0,
+       "runs": [
+        {
+         "text": "年",
+         "size_pt": 12.0,
+         "bold": true,
+         "italic": null,
+         "font": "Microsoft YaHei"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "TEXT_BOX (17)",
+     "name": "文本框 82",
+     "pos_cm": [
+      9.73,
+      10.75
+     ],
+     "size_cm": [
+      3.16,
+      0.77
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "月度达标",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": "Microsoft YaHei"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "TEXT_BOX (17)",
+     "name": "文本框 83",
+     "pos_cm": [
+      12.02,
+      10.75
+     ],
+     "size_cm": [
+      3.16,
+      0.77
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "79.66",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": "Microsoft YaHei"
+        },
+        {
+         "text": "/",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": "Microsoft YaHei",
+         "color": "#0432FF"
+        },
+        {
+         "text": "80",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": "Microsoft YaHei"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "TEXT_BOX (17)",
+     "name": "文本框 84",
+     "pos_cm": [
+      9.73,
+      11.6
+     ],
+     "size_cm": [
+      3.16,
+      0.77
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "较前月",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": "Microsoft YaHei"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "TEXT_BOX (17)",
+     "name": "文本框 85",
+     "pos_cm": [
+      12.02,
+      11.6
+     ],
+     "size_cm": [
+      3.16,
+      0.77
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "0.2%",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": "Microsoft YaHei"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "GROUP (6)",
+     "name": "组合 4",
+     "pos_cm": [
+      15.51,
+      10.37
+     ],
+     "size_cm": [
+      2.6,
+      2.6
+     ],
+     "children": [
+      {
+       "type": "AUTO_SHAPE (1)",
+       "name": "椭圆 81",
+       "pos_cm": [
+        15.51,
+        10.23
+       ],
+       "size_cm": [
+        2.6,
+        2.6
+       ]
+      },
+      {
+       "type": "AUTO_SHAPE (1)",
+       "name": "饼形 86",
+       "pos_cm": [
+        15.51,
+        10.23
+       ],
+       "size_cm": [
+        2.6,
+        2.6
+       ]
+      }
+     ]
+    },
+    {
+     "type": "AUTO_SHAPE (1)",
+     "name": "下箭头 87",
+     "pos_cm": [
+      13.35,
+      11.8
+     ],
+     "size_cm": [
+      0.37,
+      0.45
+     ]
+    },
+    {
+     "type": "TEXT_BOX (17)",
+     "name": "文本框 88",
+     "pos_cm": [
+      4.18,
+      10.58
+     ],
+     "size_cm": [
+      3.16,
+      0.77
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "10%",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": "Microsoft YaHei"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "TEXT_BOX (17)",
+     "name": "文本框 89",
+     "pos_cm": [
+      4.18,
+      11.78
+     ],
+     "size_cm": [
+      3.16,
+      0.77
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "10%",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": "Microsoft YaHei"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "TABLE (19)",
+     "name": "Table 0",
+     "pos_cm": [
+      0.92,
+      2.37
+     ],
+     "size_cm": [
+      24.08,
+      6.65
+     ],
+     "table": [
+      [
+       "指标名称",
+       "目标值",
+       "单位",
+       "指标值",
+       "得分",
+       "占比",
+       "加权得分"
+      ],
+      [
+       "关键系统可用性",
+       "99.90",
+       "可用率",
+       "99.80",
+       "",
+       "15%",
+       "14.71"
+      ],
+      [
+       "系统服务级故障数量",
+       "3",
+       "次",
+       "1",
+       "",
+       "15%",
+       "15"
+      ],
+      [
+       "异常平均处理时间(MTTR)",
+       "3",
+       "小时",
+       "1.47",
+       "",
+       "10%",
+       "10"
+      ],
+      [
+       "需求平均交付周期",
+       "25",
+       "天",
+       "23.39",
+       "",
+       "30%",
+       "30"
+      ],
+      [
+       "IT服务台综合满意度评分",
+       "4.2",
+       "分",
+       "4.18",
+       "",
+       "10%",
+       "9.95"
+      ]
+     ]
+    },
+    {
+     "type": "AUTO_SHAPE (1)",
+     "name": "矩形 2",
+     "pos_cm": [
+      14.19,
+      3.65
+     ],
+     "size_cm": [
+      5.18,
+      0.45
+     ]
+    },
+    {
+     "type": "AUTO_SHAPE (1)",
+     "name": "矩形 3",
+     "pos_cm": [
+      14.19,
+      3.65
+     ],
+     "size_cm": [
+      4.74,
+      0.45
+     ],
+     "paragraphs": [
+      {
+       "align": "CENTER (2)",
+       "level": 0,
+       "runs": [
+        {
+         "text": "   ",
+         "size_pt": 10.5,
+         "bold": null,
+         "italic": null,
+         "font": null,
+         "color": "#FFFF00"
+        },
+        {
+         "text": "98.06",
+         "size_pt": 12.0,
+         "bold": true,
+         "italic": null,
+         "font": null,
+         "color": "#FFFF00"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "AUTO_SHAPE (1)",
+     "name": "矩形 5",
+     "pos_cm": [
+      14.23,
+      4.82
+     ],
+     "size_cm": [
+      5.13,
+      0.45
+     ],
+     "paragraphs": [
+      {
+       "align": "CENTER (2)",
+       "level": 0,
+       "runs": [
+        {
+         "text": "100",
+         "size_pt": 10.5,
+         "bold": true,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "AUTO_SHAPE (1)",
+     "name": "矩形 7",
+     "pos_cm": [
+      14.23,
+      5.96
+     ],
+     "size_cm": [
+      5.13,
+      0.45
+     ],
+     "paragraphs": [
+      {
+       "align": "CENTER (2)",
+       "level": 0,
+       "runs": [
+        {
+         "text": "100",
+         "size_pt": 10.5,
+         "bold": true,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "AUTO_SHAPE (1)",
+     "name": "矩形 9",
+     "pos_cm": [
+      14.23,
+      7.08
+     ],
+     "size_cm": [
+      5.13,
+      0.45
+     ],
+     "paragraphs": [
+      {
+       "align": "CENTER (2)",
+       "level": 0,
+       "runs": [
+        {
+         "text": "100",
+         "size_pt": 10.5,
+         "bold": true,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "TEXT_BOX (17)",
+     "name": "文本框 6",
+     "pos_cm": [
+      16.02,
+      11.34
+     ],
+     "size_cm": [
+      1.81,
+      0.77
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "99.6%",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": "Microsoft YaHei",
+         "color": "#0432FF"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "AUTO_SHAPE (1)",
+     "name": "矩形 8",
+     "pos_cm": [
+      14.19,
+      8.19
+     ],
+     "size_cm": [
+      5.18,
+      0.45
+     ]
+    },
+    {
+     "type": "AUTO_SHAPE (1)",
+     "name": "矩形 11",
+     "pos_cm": [
+      14.19,
+      8.19
+     ],
+     "size_cm": [
+      4.93,
+      0.45
+     ],
+     "paragraphs": [
+      {
+       "align": "CENTER (2)",
+       "level": 0,
+       "runs": [
+        {
+         "text": "   ",
+         "size_pt": 10.5,
+         "bold": null,
+         "italic": null,
+         "font": null,
+         "color": "#FFFF00"
+        },
+        {
+         "text": "99.5",
+         "size_pt": 12.0,
+         "bold": true,
+         "italic": null,
+         "font": null,
+         "color": "#FFFF00"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 5,
+   "layout": "3_节标题",
+   "shapes": [
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "标题 1",
+     "pos_cm": [
+      5.89,
+      5.83
+     ],
+     "size_cm": [
+      13.62,
+      2.05
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "指标达成相关重点工作",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "文本占位符 2",
+     "pos_cm": [
+      2.98,
+      5.16
+     ],
+     "size_cm": [
+      2.91,
+      3.38
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "2",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 6,
+   "layout": "标题和内容",
+   "shapes": [
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "标题 1",
+     "pos_cm": [
+      4.32,
+      0.42
+     ],
+     "size_cm": [
+      20.67,
+      0.98
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "关联指标（一）系统运维保障类",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "TABLE (19)",
+     "name": "Table 0",
+     "pos_cm": [
+      0.92,
+      2.39
+     ],
+     "size_cm": [
+      24.08,
+      4.36
+     ],
+     "table": [
+      [
+       "指标名称",
+       "目标值",
+       "单位",
+       "指标值",
+       "得分",
+       "占比",
+       "加权得分"
+      ],
+      [
+       "关键系统可用性",
+       "99.90",
+       "可用率",
+       "99.80",
+       "",
+       "15%",
+       "14.71"
+      ],
+      [
+       "系统服务级故障数量",
+       "3",
+       "次",
+       "1",
+       "",
+       "15%",
+       "15"
+      ],
+      [
+       "异常平均处理时间(MTTR)",
+       "3",
+       "小时",
+       "1.47",
+       "",
+       "10%",
+       "10"
+      ]
+     ]
+    },
+    {
+     "type": "AUTO_SHAPE (1)",
+     "name": "矩形 174",
+     "pos_cm": [
+      14.19,
+      3.67
+     ],
+     "size_cm": [
+      5.18,
+      0.45
+     ]
+    },
+    {
+     "type": "AUTO_SHAPE (1)",
+     "name": "矩形 175",
+     "pos_cm": [
+      14.19,
+      3.67
+     ],
+     "size_cm": [
+      4.74,
+      0.45
+     ],
+     "paragraphs": [
+      {
+       "align": "CENTER (2)",
+       "level": 0,
+       "runs": [
+        {
+         "text": "   ",
+         "size_pt": 10.5,
+         "bold": null,
+         "italic": null,
+         "font": "Microsoft YaHei",
+         "color": "#FFFF00"
+        },
+        {
+         "text": "98.06",
+         "size_pt": 12.0,
+         "bold": true,
+         "italic": null,
+         "font": "Microsoft YaHei",
+         "color": "#FFFF00"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "AUTO_SHAPE (1)",
+     "name": "矩形 176",
+     "pos_cm": [
+      14.23,
+      4.84
+     ],
+     "size_cm": [
+      5.13,
+      0.45
+     ],
+     "paragraphs": [
+      {
+       "align": "CENTER (2)",
+       "level": 0,
+       "runs": [
+        {
+         "text": "100",
+         "size_pt": 10.5,
+         "bold": true,
+         "italic": null,
+         "font": "Microsoft YaHei"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "AUTO_SHAPE (1)",
+     "name": "矩形 177",
+     "pos_cm": [
+      14.23,
+      5.98
+     ],
+     "size_cm": [
+      5.13,
+      0.45
+     ],
+     "paragraphs": [
+      {
+       "align": "CENTER (2)",
+       "level": 0,
+       "runs": [
+        {
+         "text": "100",
+         "size_pt": 10.5,
+         "bold": true,
+         "italic": null,
+         "font": "Microsoft YaHei"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "AUTO_SHAPE (1)",
+     "name": "圆角矩形 1",
+     "pos_cm": [
+      0.92,
+      8.03
+     ],
+     "size_cm": [
+      23.44,
+      3.87
+     ]
+    },
+    {
+     "type": "TABLE (19)",
+     "name": "表格 2",
+     "pos_cm": [
+      2.21,
+      8.79
+     ],
+     "size_cm": [
+      20.86,
+      2.35
+     ],
+     "table": [
+      [
+       "未达标之关键系统",
+       "原因说明",
+       "改善说明"
+      ],
+      [
+       "SFA",
+       "内存占用过多，垃圾回收过于频繁，导致内存溢出",
+       "1、优化数据同步程序，避免同时占用大量内存 2、月结前定期重启释放内存"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "index": 7,
+   "layout": "标题和内容",
+   "shapes": [
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "标题 1",
+     "pos_cm": [
+      4.32,
+      0.42
+     ],
+     "size_cm": [
+      20.67,
+      0.98
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "关联指标（二）开发交付服务类",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "TABLE (19)",
+     "name": "Table 0",
+     "pos_cm": [
+      0.92,
+      2.38
+     ],
+     "size_cm": [
+      24.08,
+      3.22
+     ],
+     "table": [
+      [
+       "指标名称",
+       "目标值",
+       "单位",
+       "指标值",
+       "得分",
+       "占比",
+       "加权得分"
+      ],
+      [
+       "需求平均交付周期",
+       "25",
+       "天",
+       "23.39",
+       "",
+       "30%",
+       "30"
+      ],
+      [
+       "IT服务台综合满意度评分",
+       "4.2",
+       "分",
+       "4.18",
+       "",
+       "10%",
+       "9.95"
+      ]
+     ]
+    },
+    {
+     "type": "AUTO_SHAPE (1)",
+     "name": "矩形 12",
+     "pos_cm": [
+      14.23,
+      3.57
+     ],
+     "size_cm": [
+      5.13,
+      0.45
+     ],
+     "paragraphs": [
+      {
+       "align": "CENTER (2)",
+       "level": 0,
+       "runs": [
+        {
+         "text": "100",
+         "size_pt": 10.5,
+         "bold": true,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "AUTO_SHAPE (1)",
+     "name": "矩形 13",
+     "pos_cm": [
+      14.21,
+      4.81
+     ],
+     "size_cm": [
+      5.18,
+      0.45
+     ]
+    },
+    {
+     "type": "AUTO_SHAPE (1)",
+     "name": "矩形 14",
+     "pos_cm": [
+      14.21,
+      4.81
+     ],
+     "size_cm": [
+      4.93,
+      0.45
+     ],
+     "paragraphs": [
+      {
+       "align": "CENTER (2)",
+       "level": 0,
+       "runs": [
+        {
+         "text": "   ",
+         "size_pt": 10.5,
+         "bold": null,
+         "italic": null,
+         "font": null,
+         "color": "#FFFF00"
+        },
+        {
+         "text": "99.5",
+         "size_pt": 12.0,
+         "bold": true,
+         "italic": null,
+         "font": null,
+         "color": "#FFFF00"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "AUTO_SHAPE (1)",
+     "name": "圆角矩形 15",
+     "pos_cm": [
+      0.92,
+      7.14
+     ],
+     "size_cm": [
+      23.44,
+      4.97
+     ]
+    },
+    {
+     "type": "TABLE (19)",
+     "name": "表格 16",
+     "pos_cm": [
+      1.52,
+      7.5
+     ],
+     "size_cm": [
+      22.25,
+      4.25
+     ],
+     "table": [
+      [
+       "未达标原因分类",
+       "原因说明",
+       "改善说明"
+      ],
+      [
+       "工单处理质量",
+       "存在2笔“关单时未真正解决用户问题”",
+       "建立“工单关闭前/后确认回访”机制：工单关闭前需先与用户确认，识别真/假关闭；对于不满意的工单，由主管再次进行回访确认根因"
+      ],
+      [
+       "服务闭环机制",
+       "未评价用户占比77.5%（默认4分）拉低总体满意度得分",
+       "开展“好评引导”专项培训：对一线工程师进行工单关闭话术标准化培训，并要求完工后主动引导用户评价"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "index": 8,
+   "layout": "3_节标题",
+   "shapes": [
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "标题 1",
+     "pos_cm": [
+      5.89,
+      5.83
+     ],
+     "size_cm": [
+      13.62,
+      2.05
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "其他关注事项",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "文本占位符 2",
+     "pos_cm": [
+      2.98,
+      5.16
+     ],
+     "size_cm": [
+      2.91,
+      3.38
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "3",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 9,
+   "layout": "标题和内容",
+   "shapes": [
+    {
+     "type": "PLACEHOLDER (14)",
+     "name": "标题 1",
+     "pos_cm": [
+      4.32,
+      0.42
+     ],
+     "size_cm": [
+      20.67,
+      0.98
+     ],
+     "paragraphs": [
+      {
+       "align": null,
+       "level": 0,
+       "runs": [
+        {
+         "text": "其他关注事项说明",
+         "size_pt": null,
+         "bold": null,
+         "italic": null,
+         "font": null
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 10,
+   "layout": "6_结束页",
+   "shapes": []
+  }
+ ],
+ "usage": {
+  "fonts": {
+   "Microsoft YaHei": 19,
+   "微软雅黑": 2
+  },
+  "sizes_pt": {
+   "10.5": 10,
+   "12.0": 8
+  },
+  "colors": {
+   "#FFFF00": 8,
+   "#1A1A1A": 2,
+   "#0432FF": 2
+  }
+ }
+}
